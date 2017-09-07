@@ -45,7 +45,9 @@
                         <c:forEach var="currentPlanet" items="${planetList}">
                             <tr>
                                 <td>
-                                    <c:out value="${currentPlanet.name}"/>
+                                    <a href="displayPlanetDetails?planetId=${currentPlanet.planetId}">
+                                        <c:out value="${currentPlanet.name}"/>
+                                    </a>
                                 </td>
                                 <td>
                                     <c:out value="${currentPlanet.planetType}"/>

@@ -33,7 +33,7 @@ public class PlanetController {
     public String displayPlanetsPage(Model model) {
         List<Planet> planetList = dao.getAllPlanets();
 
-        model.addAttribute("contactList", planetList);
+        model.addAttribute("planetList", planetList);
 
         return "planets";
     }
@@ -50,5 +50,17 @@ public class PlanetController {
         dao.addPlanet(planet);
 
         return "redirect:displayPlanetsPage";
+    }
+
+    @RequestMapping(value = "/displayPlanetDetails", method = RequestMethod.GET)
+    public String displayPlanetDetails(HttpServletRequest request, Model model) {
+        String planetIdParameter = request.getParameter("planetId");
+        int planetId = Integer.parseInt(planetIdParameter);
+
+        Planet planet = dao.getPlanetById(planetId);
+
+        model.addAttribute("planet", planet);
+
+        return "planetDetails";
     }
 }
