@@ -56,7 +56,9 @@
                                     Edit
                                 </td>
                                 <td>
-                                    Delete
+                                    <a href="deletePlanet?planetId=${currentPlanet.planetId}">
+                                        Delete
+                                    </a>
                                 </td>
                             </tr>
                         </c:forEach>

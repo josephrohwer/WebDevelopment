@@ -63,4 +63,12 @@ public class PlanetController {
 
         return "planetDetails";
     }
+
+    @RequestMapping(value = "/deletePlanet", method = RequestMethod.GET)
+    public String deletePlanet(HttpServletRequest request) {
+        String planetIdParameter = request.getParameter("planetId");
+        long planetId = Long.parseLong(planetIdParameter);
+        dao.removePlanet(planetId);
+        return "redirect:displayPlanetsPage";
+    }
 }
