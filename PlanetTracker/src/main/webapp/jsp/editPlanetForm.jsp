@@ -45,7 +45,7 @@
                 <div class="form-group">
                     <label for="add-avg-temp" class="col-md-4 control-label">Average Temp:</label>
                     <div class="col-md-8">
-                        <sf:input type="number" class="form-control" id="add-avg-temp"
+                        <sf:input type="number" min="-459" max="10000" class="form-control" id="add-avg-temp"
                                   path="avgTemp" placeholder="Average Temp (F)"/>
                         <sf:errors path="avgTemp" cssclass="error"></sf:errors>
                     </div>
@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <label for="add-rad-level" class="col-md-4 control-label">Radiation Level:</label>                          
                     <div class="col-md-8">
-                        <sf:input type="number" class="form-control" id="add-rad-level"
+                        <sf:input type="number" min="0" max="10000" class="form-control" id="add-rad-level"
                                   path="radLevel" placeholder="Radiation Level (Sv)"/>
                         <sf:errors path="radLevel" cssclass="error"></sf:errors>
                     </div>

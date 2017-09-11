@@ -10,8 +10,10 @@ import com.josephrohwer.planettracker.model.Planet;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -83,8 +85,12 @@ public class PlanetController {
     }
 
     @RequestMapping(value = "/editPlanet", method = RequestMethod.POST)
-    public String editPlanet(@ModelAttribute("planet") Planet planet) {
+    public String editPlanet(@Valid @ModelAttribute("planet") Planet planet, BindingResult result) {
 
+        if (result.hasErrors()) {
+            return "editPlanetForm";
+        }
+        
         dao.updatePlanet(planet);
 
         return "redirect:displayPlanetsPage";

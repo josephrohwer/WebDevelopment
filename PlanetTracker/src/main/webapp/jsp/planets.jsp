@@ -80,13 +80,13 @@
                         <div class="form-group">
                             <label for="add-avg-temp" class="col-md-4 control-label">Average Temp:</label>
                             <div class="col-md-8">
-                                <input type="number" class="form-control" name="avgTemp" placeholder="Average Temp (F)"/>
+                                <input type="number" class="form-control" name="avgTemp" min="-459" max="10000" placeholder="Average Temp (F)"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-rad-level" class="col-md-4 control-label">Radiation Level:</label>
                             <div class="col-md-8">
-                                <input type="number" class="form-control" name="radLevel" placeholder="Radiation Level (Sv)"/>
+                                <input type="number" class="form-control" name="radLevel" min="0" max="10000" placeholder="Radiation Level (Sv)"/>
                             </div>
                         </div>
                         <div class="form-group">

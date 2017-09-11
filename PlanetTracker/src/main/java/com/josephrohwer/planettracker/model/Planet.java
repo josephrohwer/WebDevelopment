@@ -6,6 +6,10 @@
 package com.josephrohwer.planettracker.model;
 
 import java.util.Objects;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -14,10 +18,22 @@ import java.util.Objects;
 public class Planet {
 
     private long planetId;
+    @NotEmpty(message = "You must supply a value for Name.")
+    @Length(max = 50, message = "Name must be no more than 50 characters in length.")
     private String name;
+    @NotEmpty(message = "You must supply a value for Average Temp.")
+    @Min(-459)
+    @Max(10000)
     private String avgTemp;
+    @NotEmpty(message = "You must supply a value for Radiation Level.")
+    @Min(0)
+    @Max(10000)
     private String radLevel;
+    @NotEmpty(message = "You must supply a value for Planet Type.")
+    @Length(max = 50, message = "Planet Type must be no more than 50 characters in length.")
     private String planetType;
+    @NotEmpty(message = "You must supply a value for Life Type.")
+    @Length(max = 50, message = "Life Type must be no more than 50 characters in length.")
     private String lifeType;
 
     public long getPlanetId() {
@@ -67,11 +83,11 @@ public class Planet {
     public void setLifeType(String lifeType) {
         this.lifeType = lifeType;
     }
-       
+
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + (int) (this.planetId ^ (this.planetId >>>32));
+        hash = 97 * hash + (int) (this.planetId ^ (this.planetId >>> 32));
         hash = 97 * hash + Objects.hashCode(this.name);
         hash = 97 * hash + Objects.hashCode(this.avgTemp);
         hash = 97 * hash + Objects.hashCode(this.radLevel);
