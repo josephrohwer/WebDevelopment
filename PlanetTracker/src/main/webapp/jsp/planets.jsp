@@ -53,7 +53,9 @@
                                     <c:out value="${currentPlanet.planetType}"/>
                                 </td>
                                 <td>
-                                    Edit
+                                    <a href="displayEditPlanetForm?planetId=${currentPlanet.planetId}">
+                                        Edit
+                                    </a>
                                 </td>
                                 <td>
                                     <a href="deletePlanet?planetId=${currentPlanet.planetId}">

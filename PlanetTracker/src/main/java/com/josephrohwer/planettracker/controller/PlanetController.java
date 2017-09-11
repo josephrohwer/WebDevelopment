@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -69,6 +70,23 @@ public class PlanetController {
         String planetIdParameter = request.getParameter("planetId");
         long planetId = Long.parseLong(planetIdParameter);
         dao.removePlanet(planetId);
+        return "redirect:displayPlanetsPage";
+    }
+
+    @RequestMapping(value = "/displayEditPlanetForm", method = RequestMethod.GET)
+    public String displayEditPlanetForm(HttpServletRequest request, Model model) {
+        String planetIdParameter = request.getParameter("planetId");
+        long planetId = Long.parseLong(planetIdParameter);
+        Planet planet = dao.getPlanetById(planetId);
+        model.addAttribute("planet", planet);
+        return "editPlanetForm";
+    }
+
+    @RequestMapping(value = "/editPlanet", method = RequestMethod.POST)
+    public String editPlanet(@ModelAttribute("planet") Planet planet) {
+
+        dao.updatePlanet(planet);
+
         return "redirect:displayPlanetsPage";
     }
 }
