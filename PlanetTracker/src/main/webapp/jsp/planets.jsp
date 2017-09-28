@@ -32,85 +32,154 @@
                     </li>
                 </ul>    
             </div>
+            <ul class="list-group" id="errorMessages"></ul>
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Planets</h2>
-                    <table id="planetTable" class="table table-hover">
-                        <tr>
-                            <th width="40%">Name</th>
-                            <th width="30%">Planet Type</th>
-                            <th width="15%"></th>
-                            <th width="15%"></th>
-                        </tr>
-                        <c:forEach var="currentPlanet" items="${planetList}">
+
+                    <!-- PLANET TABLE PLANET TABLE PLANET TABLE PLANET TABLE -->               
+
+                    <div id="planetTableDiv">
+                        <h2>Planets</h2>
+                        <table id="planetTable" class="table table-hover">
                             <tr>
-                                <td>
-                                    <a href="displayPlanetDetails?planetId=${currentPlanet.planetId}">
-                                        <c:out value="${currentPlanet.name}"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <c:out value="${currentPlanet.planetType}"/>
-                                </td>
-                                <td>
-                                    <a href="displayEditPlanetForm?planetId=${currentPlanet.planetId}">
-                                        Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="deletePlanet?planetId=${currentPlanet.planetId}">
-                                        Delete
-                                    </a>
-                                </td>
+                                <th width="40%">Name</th>
+                                <th width="30%">Planet Type</th>
+                                <th width="15%"></th>
+                                <th width="15%"></th>
                             </tr>
-                        </c:forEach>
-                    </table>                    
+                            <tbody id="contentRows"></tbody>
+                        </table>                    
+                    </div>
+
+                    <!-- PLANET TABLE PLANET TABLE PLANET TABLE PLANET TABLE -->               
+
+                    <!-- EDITING PLANET EDITING PLANET EDITING PLANET EDITING PLANET -->               
+
+                    <div id="editFormDiv" style="display: none">
+                        <h2>Edit Planet</h2>
+                        <form class="form-horizontal" role="form" id="edit-form">
+                            <div class="form-group">
+                                <label for="edit-name" class="col-md-4 control-label">Name:</label>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control"
+                                           id="edit-name"
+                                           placeholder="Name" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-avg-temp" class="col-md-4 control-label">Average Temp:</label>
+                                <div class="col-md-8">
+                                    <input type="number"
+                                           class="form-control"
+                                           id="edit-avg-temp"
+                                           placeholder="Average Temp (F)" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-rad-level" class="col-md-4 control-label">Radiation Level:</label>
+                                <div class="col-md-8">
+                                    <input type="number"
+                                           class="form-control"
+                                           id="edit-rad-level"
+                                           placeholder="Radiation Level (Sv)"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-planet-type" class="col-md-4 control-label">Planet Type:</label>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control"
+                                           id="edit-planet-type"
+                                           placeholder="Planet Type" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-life-type" class="col-md-4 control-label">Life Type:</label>
+                                <div class="col-md-8">
+                                    <input type="text"
+                                           class="form-control"
+                                           id="edit-life-type"
+                                           placeholder="Life Type"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-4">
+                                    <input type="hidden" id="edit-planet-id">
+                                    <button type="button"
+                                            id="edit-cancel-button"
+                                            class="btn btn-default"
+                                            onclick="hideEditForm()">
+                                        Cancel
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button"
+                                            id="edit-button"
+                                            class="btn btn-default">
+                                        Update Planet
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
+                <!-- EDITING PLANET EDITING PLANET EDITING PLANET EDITING PLANET -->
+
+                <!-- ADDING PLANET ADDING PLANET ADDING PLANET ADDING PLANET -->
+
                 <div class="col-md-6">
                     <h2>Add New Planet</h2>
-                    <form class="form-horizontal" 
-                          role="form" method="POST" 
-                          action="createPlanet">
+                    <form class="form-horizontal" role="form" id="add-form">
                         <div class="form-group">
                             <label for="add-name" class="col-md-4 control-label">Name:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="name" placeholder="Name"/>
+                                <input type="text" class="form-control" id="add-name" placeholder="Name"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-avg-temp" class="col-md-4 control-label">Average Temp:</label>
                             <div class="col-md-8">
-                                <input type="number" class="form-control" name="avgTemp" min="-459" max="10000" placeholder="Average Temp (F)"/>
+                                <input type="number" class="form-control" id="add-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-rad-level" class="col-md-4 control-label">Radiation Level:</label>
                             <div class="col-md-8">
-                                <input type="number" class="form-control" name="radLevel" min="0" max="10000" placeholder="Radiation Level (Sv)"/>
+                                <input type="number" class="form-control" id="add-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="planetType" placeholder="Planet Type"/>
+                                <input type="text" class="form-control" id="add-planet-type" placeholder="Planet Type"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" name="lifeType" placeholder="Life Type"/>
+                                <input type="text" class="form-control" id="add-life-type" placeholder="Life Type"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-4 col-md-8">
-                                <input type="submit" class="btn btn-default" value="Add Planet"/>
+                                <button type="button"
+                                        id="add-button"
+                                        class="btn btn-default">
+                                    Add Planet
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
+
+                <!-- ADDING PLANET ADDING PLANET ADDING PLANET ADDING PLANET -->
+
+            </div> <!-- END OF ROW -->
+        </div> <!-- END OF CONTAINER -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/planetTracker.js"></script>
     </body>
 </html>
