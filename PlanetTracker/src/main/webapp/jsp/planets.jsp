@@ -82,7 +82,7 @@
                                     <input type="number"
                                            class="form-control"
                                            id="edit-rad-level"
-                                           placeholder="Radiation Level (Sv)"/>
+                                           placeholder="Radiation Level (Sv)" required/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -100,7 +100,7 @@
                                     <input type="text"
                                            class="form-control"
                                            id="edit-life-type"
-                                           placeholder="Life Type"/>
+                                           placeholder="Life Type" required/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -135,31 +135,31 @@
                         <div class="form-group">
                             <label for="add-name" class="col-md-4 control-label">Name:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-name" placeholder="Name"/>
+                                <input type="text" class="form-control" id="add-name" placeholder="Name" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-avg-temp" class="col-md-4 control-label">Average Temp:</label>
                             <div class="col-md-8">
-                                <input type="number" class="form-control" id="add-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)"/>
+                                <input type="number" class="form-control" id="add-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-rad-level" class="col-md-4 control-label">Radiation Level:</label>
                             <div class="col-md-8">
-                                <input type="number" class="form-control" id="add-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)"/>
+                                <input type="number" class="form-control" id="add-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-planet-type" placeholder="Planet Type"/>
+                                <input type="text" class="form-control" id="add-planet-type" placeholder="Planet Type" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-life-type" placeholder="Life Type"/>
+                                <input type="text" class="form-control" id="add-life-type" placeholder="Life Type" required/>
                             </div>
                         </div>
                         <div class="form-group">

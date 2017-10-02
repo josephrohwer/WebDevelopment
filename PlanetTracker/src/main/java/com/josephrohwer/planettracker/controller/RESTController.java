@@ -9,6 +9,7 @@ import com.josephrohwer.planettracker.dao.PlanetTrackerDao;
 import com.josephrohwer.planettracker.model.Planet;
 import java.util.List;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,7 +44,7 @@ public class RESTController {
     @RequestMapping(value = "/planet", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public Planet createPlanet(@RequestBody Planet planet) {
+    public Planet createPlanet(@Valid @RequestBody Planet planet) {
         return dao.addPlanet(planet);
     }
 
@@ -55,8 +56,10 @@ public class RESTController {
 
     @RequestMapping(value = "/planet/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updatePlanet(@PathVariable("id") long id, @RequestBody Planet planet) {
-        planet.setPlanetId(id);
+    public void updatePlanet(@PathVariable("id") long id, @Valid @RequestBody Planet planet) throws UpdateIntegrityException {
+        if (id != planet.getPlanetId()) {
+            throw new UpdateIntegrityException("Planet Id on URL must match Planet Id in submitted data.");
+        }
         dao.updatePlanet(planet);
     }
 
