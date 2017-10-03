@@ -18,22 +18,22 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Planet {
 
     private long planetId;
-    @NotEmpty(message = "You must supply a value for Name.")
-    @Length(max = 50, message = "Name must be no more than 50 characters in length.")
+    @NotEmpty
+    @Length(max = 50)
     private String name;
-    @NotEmpty(message = "You must supply a value for Average Temp.")
+    @NotEmpty
     @Min(-459)
     @Max(10000)
     private String avgTemp;
-    @NotEmpty(message = "You must supply a value for Radiation Level.")
+    @NotEmpty
     @Min(0)
     @Max(10000)
     private String radLevel;
-    @NotEmpty(message = "You must supply a value for Planet Type.")
-    @Length(max = 50, message = "Planet Type must be no more than 50 characters in length.")
+    @NotEmpty
+    @Length(max = 50)
     private String planetType;
-    @NotEmpty(message = "You must supply a value for Life Type.")
-    @Length(max = 50, message = "Life Type must be no more than 50 characters in length.")
+    @NotEmpty
+    @Length(max = 50)
     private String lifeType;
 
     public long getPlanetId() {

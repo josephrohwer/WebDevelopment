@@ -61,64 +61,40 @@
                             <div class="form-group">
                                 <label for="edit-name" class="col-md-4 control-label">Name:</label>
                                 <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-name"
-                                           placeholder="Name" required/>
+                                    <input type="text" class="form-control" id="edit-name" maxlength="50" placeholder="Name" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="edit-avg-temp" class="col-md-4 control-label">Average Temp:</label>
                                 <div class="col-md-8">
-                                    <input type="number"
-                                           class="form-control"
-                                           id="edit-avg-temp"
-                                           placeholder="Average Temp (F)" required/>
+                                    <input type="number" class="form-control" id="edit-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="edit-rad-level" class="col-md-4 control-label">Radiation Level:</label>
                                 <div class="col-md-8">
-                                    <input type="number"
-                                           class="form-control"
-                                           id="edit-rad-level"
-                                           placeholder="Radiation Level (Sv)" required/>
+                                    <input type="number" class="form-control" id="edit-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="edit-planet-type" class="col-md-4 control-label">Planet Type:</label>
                                 <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-planet-type"
-                                           placeholder="Planet Type" required/>
+                                    <input type="text" class="form-control" id="edit-planet-type" maxlength="50" placeholder="Planet Type" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="edit-life-type" class="col-md-4 control-label">Life Type:</label>
                                 <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-life-type"
-                                           placeholder="Life Type" required/>
+                                    <input type="text" class="form-control" id="edit-life-type" maxlength="50" placeholder="Life Type" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-offset-4 col-md-4">
                                     <input type="hidden" id="edit-planet-id">
-                                    <button type="button"
-                                            id="edit-cancel-button"
-                                            class="btn btn-default"
-                                            onclick="hideEditForm()">
-                                        Cancel
-                                    </button>
+                                    <button type="button" id="edit-cancel-button" class="btn btn-default" onclick="hideEditForm()">Cancel</button>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="button"
-                                            id="edit-button"
-                                            class="btn btn-default">
-                                        Update Planet
-                                    </button>
+                                    <button type="button" id="edit-button" class="btn btn-default">Update Planet</button>
                                 </div>
                             </div>
                         </form>
@@ -135,7 +111,7 @@
                         <div class="form-group">
                             <label for="add-name" class="col-md-4 control-label">Name:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-name" placeholder="Name" required/>
+                                <input type="text" class="form-control" id="add-name" maxlength="50" placeholder="Name" required/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -153,22 +129,18 @@
                         <div class="form-group">
                             <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-planet-type" placeholder="Planet Type" required/>
+                                <input type="text" class="form-control" id="add-planet-type" maxlength="50" placeholder="Planet Type" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-life-type" placeholder="Life Type" required/>
+                                <input type="text" class="form-control" id="add-life-type" maxlength="50" placeholder="Life Type" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-4 col-md-8">
-                                <button type="button"
-                                        id="add-button"
-                                        class="btn btn-default">
-                                    Add Planet
-                                </button>
+                                <button type="button" id="add-button" class="btn btn-default">Add Planet</button>
                             </div>
                         </div>
                     </form>
