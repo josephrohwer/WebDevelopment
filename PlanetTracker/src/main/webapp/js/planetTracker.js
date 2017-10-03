@@ -84,6 +84,41 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#search-button').click(function (event) {
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#search-form').find('input'));
+
+        if (haveValidationErrors) {
+            return false;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8084/PlanetTracker/search/planets',
+            data: JSON.stringify({
+                name: $('#search-name').val(),
+                avgTemp: $('#search-avg-temp').val(),
+                radLevel: $('#search-rad-level').val(),
+                planetType: $('#search-planet-type').val(),
+                lifeType: $('#search-life-type').val()
+            }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            'dataType': 'json',
+            success: function (data) {
+                $('#errorMessages').empty();
+                loadSearchResults(data);
+            },
+            error: function () {
+                $('#errorMessages')
+                        .append($('<li>')
+                                .attr({class: 'list-group-item list-group-item-danger'})
+                                .text('Error calling web service.  Please try again later.'));
+            }
+        });
+    });
 });
 
 function loadPlanets() {
@@ -118,8 +153,31 @@ function loadPlanets() {
     });
 }
 
+function loadSearchResults(data) {
+    clearSearchResults();
+
+    var searchResultRows = $('#searchResultRows');
+
+    $.each(data, function (index, planet) {
+        var name = planet.name;
+        var planetType = planet.planetType;
+
+        var row = '<tr>';
+        row += '<td>' + name + '</td>';
+        row += '<td>' + planetType + '</td>';
+        row += '<td></td>';
+        row += '<td></td>';
+        row += '</tr>';
+        searchResultRows.append(row);
+    });
+}
+
 function clearPlanetTable() {
     $('#contentRows').empty();
+}
+
+function clearSearchResults() {
+    $('#searchResultRows').empty();
 }
 
 function showEditForm(planetId) {

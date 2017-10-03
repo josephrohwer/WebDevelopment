@@ -15,20 +15,13 @@
             <div class="navbar">
                 <ul class="nav nav-tabs">
                     <li role="presentation"> 
-                        <a href="${pageContext.request.contextPath}/index.jsp">
-                            Home
-                        </a>
+                        <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
                     </li>
-                    <li role="presentation"
-                        class="active">
-                        <a href="${pageContext.request.contextPath}/displayPlanetsPage">
-                            Planets
-                        </a>
+                    <li role="presentation" class="active">
+                        <a href="${pageContext.request.contextPath}/displayPlanetsPage">Planets</a>
                     </li>
                     <li role="presentation">
-                        <a href="${pageContext.request.contextPath}/displaySearchPage">
-                            Search
-                        </a>
+                        <a href="${pageContext.request.contextPath}/displaySearchPage">Search</a>
                     </li>
                 </ul>    
             </div>
