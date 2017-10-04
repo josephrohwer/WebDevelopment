@@ -50,11 +50,10 @@ public class PlanetTrackerDaoTest {
 
     @Test
     public void addGetDeletePlanet() {
-        // Create new planet
         Planet np = new Planet();
         np.setName("Earth");
-        np.setAvgTemp("72 F.");
-        np.setRadLevel("12 Sv.");
+        np.setAvgTemp(72);
+        np.setRadLevel(12);
         np.setPlanetType("Habitable");
         np.setLifeType("Advanced");
         dao.addPlanet(np);
@@ -66,11 +65,10 @@ public class PlanetTrackerDaoTest {
 
     @Test
     public void addUpdatePlanet() {
-        // Create new planet
         Planet np = new Planet();
         np.setName("Mars");
-        np.setAvgTemp("-45 F.");
-        np.setRadLevel("54 Sv.");
+        np.setAvgTemp(45);
+        np.setRadLevel(54);
         np.setPlanetType("Rocky");
         np.setLifeType("Uninhabitable");
         dao.addPlanet(np);
@@ -82,19 +80,18 @@ public class PlanetTrackerDaoTest {
 
     @Test
     public void getAllPlanets() {
-        // Create new planet
         Planet np = new Planet();
         np.setName("Mars");
-        np.setAvgTemp("-45 F.");
-        np.setRadLevel("54 Sv.");
+        np.setAvgTemp(-45);
+        np.setRadLevel(54);
         np.setPlanetType("Rocky");
         np.setLifeType("Microbial");
         dao.addPlanet(np);
-        // Create new planet
+
         Planet np2 = new Planet();
         np2.setName("Earth");
-        np2.setAvgTemp("72 F.");
-        np2.setRadLevel("12 Sv.");
+        np2.setAvgTemp(72);
+        np2.setRadLevel(12);
         np2.setPlanetType("Habitable");
         np2.setLifeType("Advanced");
         dao.addPlanet(np2);
@@ -104,56 +101,51 @@ public class PlanetTrackerDaoTest {
 
     @Test
     public void searchPlanets() {
-        // Create new planet
         Planet np = new Planet();
         np.setName("Mars");
-        np.setAvgTemp("-45 F.");
-        np.setRadLevel("54 Sv.");
+        np.setAvgTemp(-45);
+        np.setRadLevel(54);
         np.setPlanetType("Rocky");
         np.setLifeType("Microbial");
         dao.addPlanet(np);
-        // Create new planet
+
         Planet np2 = new Planet();
         np2.setName("Earth");
-        np2.setAvgTemp("72 F.");
-        np2.setRadLevel("12 Sv.");
+        np2.setAvgTemp(72);
+        np2.setRadLevel(12);
         np2.setPlanetType("Habitable");
         np2.setLifeType("Advanced");
         dao.addPlanet(np2);
-        // Create new planet - same name as first 
-        // planet but different radLevel
+
         Planet np3 = new Planet();
         np3.setName("Jupiter");
-        np3.setAvgTemp("-45 F.");
-        np3.setRadLevel("267 Sv.");
+        np3.setAvgTemp(-45);
+        np3.setRadLevel(267);
         np3.setPlanetType("Gas Giant");
         np3.setLifeType("Uninhabitable");
         dao.addPlanet(np3);
-        // Create search criteria
+
         Map<SearchTerm, String> criteria = new HashMap<>();
-        criteria.put(SearchTerm.AVG_TEMP, "72 F.");
+        criteria.put(SearchTerm.AVG_TEMP, "72");
         List<Planet> pList = dao.searchPlanets(criteria);
         assertEquals(1, pList.size());
         assertEquals(np2, pList.get(0));
 
-        // New search criteria - look for -45 F.
-        criteria.put(SearchTerm.AVG_TEMP, "-45 F.");
+        criteria.put(SearchTerm.AVG_TEMP, "-45");
         pList = dao.searchPlanets(criteria);
         assertEquals(2, pList.size());
 
-        // Add radLevel to search criteria
-        criteria.put(SearchTerm.RAD_LEVEL, "54 Sv.");
+        criteria.put(SearchTerm.RAD_LEVEL, "54");
         pList = dao.searchPlanets(criteria);
         assertEquals(1, pList.size());
         assertEquals(np, pList.get(0));
 
-        // Change radLevel to 267 Sv., should get back np3
-        criteria.put(SearchTerm.RAD_LEVEL, "267 Sv.");
+        criteria.put(SearchTerm.RAD_LEVEL, "267");
         pList = dao.searchPlanets(criteria);
         assertEquals(1, pList.size());
         assertEquals(np3, pList.get(0));
-        // Change radLevel to 12 Sv., should get back nothing
-        criteria.put(SearchTerm.RAD_LEVEL, "12 Sv.");
+
+        criteria.put(SearchTerm.RAD_LEVEL, "12");
         pList = dao.searchPlanets(criteria);
         assertEquals(0, pList.size());
     }

@@ -8,6 +8,7 @@ package com.josephrohwer.planettracker.model;
 import java.util.Objects;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -21,14 +22,14 @@ public class Planet {
     @NotEmpty
     @Length(max = 50)
     private String name;
-    @NotEmpty
+    @NotNull
     @Min(-459)
     @Max(10000)
-    private String avgTemp;
-    @NotEmpty
+    private int avgTemp;
+    @NotNull
     @Min(0)
     @Max(10000)
-    private String radLevel;
+    private int radLevel;
     @NotEmpty
     @Length(max = 50)
     private String planetType;
@@ -52,19 +53,19 @@ public class Planet {
         this.name = name;
     }
 
-    public String getAvgTemp() {
+    public int getAvgTemp() {
         return avgTemp;
     }
 
-    public void setAvgTemp(String avgTemp) {
+    public void setAvgTemp(int avgTemp) {
         this.avgTemp = avgTemp;
     }
 
-    public String getRadLevel() {
+    public int getRadLevel() {
         return radLevel;
     }
 
-    public void setRadLevel(String radLevel) {
+    public void setRadLevel(int radLevel) {
         this.radLevel = radLevel;
     }
 

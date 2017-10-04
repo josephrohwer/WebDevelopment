@@ -40,35 +40,35 @@
                         <sf:input type="text" class="form-control" id="add-name"
                                   path="name" placeholder="Name"/>
                         <sf:errors path="name" cssclass="error"></sf:errors>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="add-avg-temp" class="col-md-4 control-label">Average Temp:</label>
-                    <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="add-avg-temp" class="col-md-4 control-label">Average Temp:</label>
+                        <div class="col-md-8">
                         <sf:input type="number" min="-459" max="10000" class="form-control" id="add-avg-temp"
                                   path="avgTemp" placeholder="Average Temp (F)"/>
                         <sf:errors path="avgTemp" cssclass="error"></sf:errors>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="add-rad-level" class="col-md-4 control-label">Radiation Level:</label>                          
-                    <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="add-rad-level" class="col-md-4 control-label">Radiation Level:</label>                          
+                        <div class="col-md-8">
                         <sf:input type="number" min="0" max="10000" class="form-control" id="add-rad-level"
                                   path="radLevel" placeholder="Radiation Level (Sv)"/>
                         <sf:errors path="radLevel" cssclass="error"></sf:errors>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
-                    <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
+                        <div class="col-md-8">
                         <sf:input type="text" class="form-control" id="add-planet-type"
                                   path="planetType" placeholder="Planet Type"/>
                         <sf:errors path="planetType" cssclass="error"></sf:errors>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
-                    <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
+                        <div class="col-md-8">
                         <sf:input type="text" class="form-control" id="add-life-type"
                                   path="lifeType" placeholder="Life Type"/>
                         <sf:errors path="lifeType" cssclass="error"></sf:errors>

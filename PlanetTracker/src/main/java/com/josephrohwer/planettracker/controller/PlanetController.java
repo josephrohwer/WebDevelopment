@@ -45,8 +45,8 @@ public class PlanetController {
     public String createPlanet(HttpServletRequest request) {
         Planet planet = new Planet();
         planet.setName(request.getParameter("name"));
-        planet.setAvgTemp(request.getParameter("avgTemp"));
-        planet.setRadLevel(request.getParameter("radLevel"));
+        planet.setAvgTemp(Integer.parseInt(request.getParameter("avgTemp")));
+        planet.setRadLevel(Integer.parseInt(request.getParameter("radLevel")));
         planet.setPlanetType(request.getParameter("planetType"));
         planet.setLifeType(request.getParameter("lifeType"));
 
@@ -86,7 +86,6 @@ public class PlanetController {
 
     @RequestMapping(value = "/editPlanet", method = RequestMethod.POST)
     public String editPlanet(@Valid @ModelAttribute("planet") Planet planet, BindingResult result) {
-
         if (result.hasErrors()) {
             return "editPlanetForm";
         }

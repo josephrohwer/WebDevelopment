@@ -20,18 +20,12 @@ import java.util.stream.Collectors;
  */
 public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
 
-    // holds all of our Planet objects - simulates the database
     private Map<Long, Planet> planetMap = new HashMap<>();
-    // used to assign ids to Planets - simulates the auto increment
-    // primary key for Planets in a database
     private static long planetIdCounter = 0;
 
     @Override
     public Planet addPlanet(Planet planet) {
-        // assign the current counter values as the planetid
         planet.setPlanetId(planetIdCounter);
-        // increment the counter so it is ready for use for the 
-        // next planet
         planetIdCounter++;
         planetMap.put(planet.getPlanetId(), planet);
         return planet;
@@ -60,7 +54,6 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
 
     @Override
     public List<Planet> searchPlanets(Map<SearchTerm, String> criteria) {
-        // Get all the search term values from the map
         String nameSearchCriteria
                 = criteria.get(SearchTerm.NAME);
         String avgTempSearchCriteria
@@ -72,33 +65,16 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
         String lifeTypeSearchCriteria
                 = criteria.get(SearchTerm.LIFE_TYPE);
 
-        // Declare all the predicate conditions - remember that
-        // Predicate is a functional interface with one method
-        // called test(T t) that returns a boolean.  Since
-        // Predicate is generic, we get to specify the type of
-        // object we want T to be - in our case, we want T to be
-        // of type Planet.  That means the Predicates declared 
-        // here will have one method: boolean test(Planet c)
         Predicate<Planet> nameMatchPredicate;
         Predicate<Planet> avgTempMatchPredicate;
         Predicate<Planet> radLevelMatchPredicate;
         Predicate<Planet> planetTypeMatchPredicate;
         Predicate<Planet> lifeTypeMatchPredicate;
 
-        // Placeholder predicate - always returns true. Used for 
-        // search terms that are empty - if the user didn't specify 
-        // a value for one of the search terms, we must return true
-        // because we are ANDing all the search terms together and 
-        // our spec says that we return everything in the DAO when
-        // the user leaves all the search terms blank.
         Predicate<Planet> truePredicate = (c) -> {
             return true;
         };
 
-        // Assign values to predicates. If a given search term is empty, 
-        // just assign the default truePredicate, otherwise assign the 
-        // predicate that only returns true when it finds a match for the 
-        // given term.
         if (nameSearchCriteria == null
                 || nameSearchCriteria.isEmpty()) {
             nameMatchPredicate = truePredicate;
@@ -112,7 +88,7 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
             avgTempMatchPredicate = truePredicate;
         } else {
             avgTempMatchPredicate
-                    = (c) -> c.getAvgTemp().equals(avgTempSearchCriteria);
+                    = (c) -> Integer.toString(c.getAvgTemp()).equals(avgTempSearchCriteria);
         }
 
         if (radLevelSearchCriteria == null
@@ -120,7 +96,7 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
             radLevelMatchPredicate = truePredicate;
         } else {
             radLevelMatchPredicate
-                    = (c) -> c.getRadLevel().equals(radLevelSearchCriteria);
+                    = (c) -> Integer.toString(c.getRadLevel()).equals(radLevelSearchCriteria);
         }
 
         if (planetTypeSearchCriteria == null
@@ -139,9 +115,6 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
                     = (c) -> c.getLifeType().equals(lifeTypeSearchCriteria);
         }
 
-        // Return the list of Planets that match the given criteria. 
-        // To do this we just AND all the predicates together in a 
-        // filter operation.
         return planetMap.values().stream()
                 .filter(nameMatchPredicate
                         .and(avgTempMatchPredicate)
