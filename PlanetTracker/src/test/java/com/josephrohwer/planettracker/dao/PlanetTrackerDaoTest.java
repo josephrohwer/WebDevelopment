@@ -24,6 +24,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author joseph.rohwer
  */
 public class PlanetTrackerDaoTest {
+
     private PlanetTrackerDao dao;
 
     public PlanetTrackerDaoTest() {
@@ -39,9 +40,13 @@ public class PlanetTrackerDaoTest {
 
     @Before
     public void setUp() {
-        ApplicationContext ctx
-                = new ClassPathXmlApplicationContext("test-applicationContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
         dao = ctx.getBean("planetTrackerDao", PlanetTrackerDao.class);
+
+        List<Planet> planets = dao.getAllPlanets();
+        for (Planet currentPlanet : planets) {
+            dao.removePlanet(currentPlanet.getPlanetId());
+        }
     }
 
     @After
