@@ -33,7 +33,7 @@
                 </ul>    
             </div>
             <p>
-                Exoplanets
+                Recent Discoveries
             </p>
         </div>
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>

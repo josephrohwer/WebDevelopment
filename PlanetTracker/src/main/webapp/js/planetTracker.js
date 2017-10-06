@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     $('#add-button').click(function (event) {
 
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-form').find('input'));
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-form').find('input'), $('#add-form').find('select'));
 
         if (haveValidationErrors) {
             return false;
@@ -49,7 +49,7 @@ $(document).ready(function () {
     });
 
     $('#edit-button').click(function (event) {
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#edit-form').find('input'));
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#edit-form').find('input'), $('#edit-form').find('select'));
 
         if (haveValidationErrors) {
             return false;
@@ -86,7 +86,7 @@ $(document).ready(function () {
     });
 
     $('#search-button').click(function (event) {
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#search-form').find('input'));
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#search-form').find('input'), $('#search-form').find('select'));
 
         if (haveValidationErrors) {
             return false;
@@ -229,11 +229,19 @@ function deletePlanet(planetId) {
     }
 }
 
-function checkAndDisplayValidationErrors(input) {
+function checkAndDisplayValidationErrors(input, select) {
     $('#errorMessages').empty();
     var errorMessages = [];
 
     input.each(function () {
+        if (!this.validity.valid)
+        {
+            var errorField = $('label[for=' + this.id + ']').text();
+            errorMessages.push(errorField + ' ' + this.validationMessage);
+        }
+    });
+    
+    select.each(function () {
         if (!this.validity.valid)
         {
             var errorField = $('label[for=' + this.id + ']').text();

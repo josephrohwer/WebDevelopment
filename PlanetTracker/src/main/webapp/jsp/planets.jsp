@@ -72,13 +72,30 @@
                             <div class="form-group">
                                 <label for="edit-planet-type" class="col-md-4 control-label">Planet Type:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="edit-planet-type" maxlength="50" placeholder="Planet Type" required/>
+                                    <select class="form-control" id="edit-planet-type" required>
+                                        <option value="" selected disabled hidden>Select Planet Type</option>
+                                        <option value="Rocky Planet">Rocky Planet</option>
+                                        <option value="Gas Planet">Gas Planet</option>
+                                        <option value="Ice Planet">Ice Planet</option>
+                                        <option value="Iron Planet">Iron Planet</option>
+                                        <option value="Lava Planet">Lava Planet</option>
+                                        <option value="Ocean Planet">Ocean Planet</option>
+                                        <option value="Terrestrial Planet">Terrestrial Planet</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="edit-life-type" class="col-md-4 control-label">Life Type:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="edit-life-type" maxlength="50" placeholder="Life Type" required/>
+                                    <select class="form-control" id="edit-life-type" required>
+                                        <option value="" selected disabled hidden>Select Life Type</option>
+                                        <option value="Rocky Planet">Devoid</option>
+                                        <option value="Gas Planet">Microbial</option>
+                                        <option value="Ice Planet">Primitive</option>
+                                        <option value="Iron Planet">Advanced</option>
+                                        <option value="Lava Planet">Intelligent</option>
+                                        <option value="Ocean Planet">Hyper-Intelligent</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -122,13 +139,30 @@
                         <div class="form-group">
                             <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-planet-type" maxlength="50" placeholder="Planet Type" required/>
+                                <select class="form-control" id="add-planet-type" required>
+                                    <option value="" selected disabled hidden>Select Planet Type</option>
+                                    <option value="Rocky Planet">Rocky Planet</option>
+                                    <option value="Gas Planet">Gas Planet</option>
+                                    <option value="Ice Planet">Ice Planet</option>
+                                    <option value="Iron Planet">Iron Planet</option>
+                                    <option value="Lava Planet">Lava Planet</option>
+                                    <option value="Ocean Planet">Ocean Planet</option>
+                                    <option value="Terrestrial Planet">Terrestrial Planet</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="add-life-type" maxlength="50" placeholder="Life Type" required/>
+                                <select class="form-control" id="add-life-type" required>
+                                    <option value="" selected disabled hidden>Select Life Type</option>
+                                    <option value="Rocky Planet">Devoid</option>
+                                    <option value="Gas Planet">Microbial</option>
+                                    <option value="Ice Planet">Primitive</option>
+                                    <option value="Iron Planet">Advanced</option>
+                                    <option value="Lava Planet">Intelligent</option>
+                                    <option value="Ocean Planet">Hyper-Intelligent</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
