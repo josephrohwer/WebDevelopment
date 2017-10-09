@@ -15,8 +15,7 @@
             <hr/>
             <div class="navbar">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" 
-                        class="active">
+                    <li role="presentation">
                         <a href="${pageContext.request.contextPath}/index.jsp">
                             Home
                         </a>
@@ -45,9 +44,13 @@
                     | <a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
                 </p>
             </c:if>
-            <p>
-                Recent Discoveries
-            </p>
+            <h1>Add User Form</h1>
+            <form method="POST" action="addUser">
+                Username: <input type="text" name="username"/><br/>
+                Password: <input type="password" name="password"/><br/>
+                Admin User? <input type="checkbox" name="isAdmin" value="yes"/> <br/>
+                <input type="submit" value="Add User"/><br/>
+            </form>
         </div>
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>

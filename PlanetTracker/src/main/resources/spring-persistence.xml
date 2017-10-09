@@ -19,6 +19,10 @@
     <bean id="planetTrackerDao" class="com.josephrohwer.planettracker.dao.PlanetTrackerDaoDbImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
+    
+    <bean id="userDao" class="com.josephrohwer.planettracker.dao.UserDaoDbImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
         
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
