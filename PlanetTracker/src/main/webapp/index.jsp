@@ -31,19 +31,25 @@
                             Search
                         </a>
                     </li>
-                    <sec:authorize access="hasRole('ROLE_ADMIN')">
-                        <li role="presentation">
+                    <li role="presentation">
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
                             <a href="${pageContext.request.contextPath}/displayUserList">
                                 User Admin
                             </a>
-                        </li>                        
-                    </sec:authorize>
+                        </sec:authorize>
+                    </li>                        
+                    <li role="presentation">
+                        <sec:authorize access="isAnonymous()"> 
+                            <a href="${pageContext.request.contextPath}/signIn">Sign In</a>
+                        </sec:authorize>
+                        <sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_USER')"> 
+                            <a href="${pageContext.request.contextPath}/j_spring_security_logout">Sign Out</a>
+                        </sec:authorize>
+                    </li>
                 </ul>    
             </div>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
-                <p>Hello : ${pageContext.request.userPrincipal.name}
-                    | <a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
-                </p>
+                <p>Hello: ${pageContext.request.userPrincipal.name}</p>
             </c:if>
             <p>
                 Recent Discoveries
