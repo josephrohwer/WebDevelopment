@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author joseph.rohwer
  */
 @Controller
-public class LoginController {
+public class SignInController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLoginForm() {
-        return "login";
+    @RequestMapping(value = "/signIn", method = RequestMethod.GET)
+    public String showSignInForm() {
+        return "signIn";
     }
 }
