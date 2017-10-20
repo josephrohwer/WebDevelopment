@@ -4,50 +4,62 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Planet Tracker</title>
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
-        <div class="container">
-            <h1>Planet Tracker</h1>
-            <hr/>
-            <div class="navbar">
-                <ul class="nav nav-tabs">
-                    <li role="presentation" 
-                        class="active">
-                        <a href="${pageContext.request.contextPath}/index.jsp">
-                            Home
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a href="${pageContext.request.contextPath}/displayPlanetsPage">
-                            Planets
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a href="${pageContext.request.contextPath}/displaySearchPage">
-                            Search
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <sec:authorize access="hasRole('ROLE_ADMIN')">
-                            <a href="${pageContext.request.contextPath}/displayUserList">
-                                User Admin
-                            </a>
-                        </sec:authorize>
-                    </li>                        
-                    <li role="presentation">
-                        <sec:authorize access="isAnonymous()"> 
-                            <a href="${pageContext.request.contextPath}/signIn">Sign In</a>
-                        </sec:authorize>
-                        <sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_USER')"> 
-                            <a href="${pageContext.request.contextPath}/j_spring_security_logout">Sign Out</a>
-                        </sec:authorize>
-                    </li>
-                </ul>    
-            </div>
+        <div class="container col-md-12">
+            <img src="${pageContext.request.contextPath}/img/space.jpg" class="img-responsive" alt="Space" style="max-width: 100%">
+            <nav class="navbar navbar-inverse navbar-static-top" data-spy="affix" data-offset-top="197">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                        </button>
+                        <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">Planet Tracker</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>                        
+                                <a href="${pageContext.request.contextPath}/displayPlanetsPage">Planets</a>
+                            </li>
+                            <li>                        
+                                <a href="${pageContext.request.contextPath}/displaySearchPage">Search</a>
+                            </li>
+                            <li>                        
+                                <a href="#">About</a>
+                            </li> 
+                            <li> 
+                                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                    <a href="${pageContext.request.contextPath}/displayUserList">Admin</a>
+                                </sec:authorize>
+                            </li> 
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <sec:authorize access="isAnonymous()"> 
+                                <li>
+                                    <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                                </li>
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/signIn"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                                </li>
+                            </sec:authorize>
+                            <sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_USER')"> 
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/j_spring_security_logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                                </li>
+                            </sec:authorize>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <p>Hello: ${pageContext.request.userPrincipal.name}</p>
             </c:if>
