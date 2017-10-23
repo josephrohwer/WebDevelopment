@@ -17,10 +17,13 @@
     border-radius: 0;
 }
 
+.cover {
+    object-fit: cover;
+}
+
 #recentPlanet {
     height: 400px;
     width: 600px;
-    overflow: hidden;
 }
 
 footer {

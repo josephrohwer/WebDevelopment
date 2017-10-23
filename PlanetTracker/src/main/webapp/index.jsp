@@ -60,7 +60,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid"> 
+        <div class="container-fluid" style="height: 1070px;"> 
             <noscript>
             <div class="error message">
                 <h3>This site looks best with JavaScript, please enable it.</h3>
@@ -70,7 +70,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <a href="#">
-                            <img src="https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg" alt="Image from NASA." id="recentPlanet">
+                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg" alt="Image from NASA." id="recentPlanet">
                             <div class="caption">
                                 <p>Lorem ipsum...</p>
                             </div>
@@ -80,7 +80,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <a href="#">
-                            <img src="https://exoplanets.nasa.gov/system/resources/detail_files/286_PIA19833_s.jpg" alt="Image from NASA." id="recentPlanet">
+                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/286_PIA19833_s.jpg" alt="Image from NASA." id="recentPlanet">
                             <div class="caption">
                                 <p>Lorem ipsum...</p>
                             </div>
@@ -90,7 +90,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <a href="#">                         
-                            <img src="https://exoplanets.nasa.gov/system/resources/detail_files/122_PIA17001.jpg" alt="Image from NASA." id="recentPlanet">
+                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/122_PIA17001.jpg" alt="Image from NASA." id="recentPlanet">
                             <div class="caption">
                                 <p>Lorem ipsum...</p>
                             </div>
@@ -102,7 +102,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <a href="#">
-                            <img src="https://exoplanets.nasa.gov/system/resources/detail_files/219_607694main_Kepler22bArtwork_full(S).jpg" alt="Image from NASA." id="recentPlanet">
+                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/219_607694main_Kepler22bArtwork_full(S).jpg" alt="Image from NASA." id="recentPlanet">
                             <div class="caption">
                                 <p>Lorem ipsum...</p>
                             </div>
@@ -112,7 +112,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <a href="#">
-                            <img src="https://exoplanets.nasa.gov/system/resources/detail_files/222_696969main_ExoUpClose-full_full(S).jpg" alt="Image from NASA." id="recentPlanet">
+                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/222_696969main_ExoUpClose-full_full(S).jpg" alt="Image from NASA." id="recentPlanet">
                             <div class="caption">
                                 <p>Lorem ipsum...</p>
                             </div>
@@ -122,7 +122,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <a href="#">
-                            <img src="https://exoplanets.nasa.gov/system/resources/detail_files/212_Kepler10b.jpg" alt="Image from NASA." id="recentPlanet">
+                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/212_Kepler10b.jpg" alt="Image from NASA." id="recentPlanet">
                             <div class="caption">
                                 <p>Lorem ipsum...</p>
                             </div>
