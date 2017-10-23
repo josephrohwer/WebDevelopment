@@ -8,13 +8,19 @@
 }
 
 #splash-pic {
-    max-width: 100%; 
-    height:200px
+    max-width: 100%;
+    height: 200px;
 }
 
 #mainNavbar {
     margin-bottom: 0;
     border-radius: 0;
+}
+
+#recentPlanet {
+    height: 400px;
+    width: 600px;
+    overflow: hidden;
 }
 
 footer {
