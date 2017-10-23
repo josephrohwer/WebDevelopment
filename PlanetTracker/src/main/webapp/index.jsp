@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
-        <img src="${pageContext.request.contextPath}/img/space.jpg" class="img-responsive" alt="Space" id="splash-pic">
+        <div class="container-fluid" id="navHeader"></div>
         <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="200" id="mainNavbar">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -60,7 +60,6 @@
                 </div>
             </div>
         </nav>
-                        
         <div class="container-fluid"> 
             <noscript>
             <div class="error message">

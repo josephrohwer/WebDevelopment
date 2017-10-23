@@ -1,6 +1,11 @@
-#splash-pic {
-    max-width: 100%;
+#navHeader {
+    background-image: url("../img/space.jpg");
     height: 200px;
+    background-size: cover;
+}
+
+#mainNavbar {
+    border-radius: 0;
 }
 
 .affix {
@@ -14,13 +19,9 @@
     padding-top: 70px;
 }
 
-#mainNavbar {
-    border-radius: 0;
-}
-
 #recentPlanet {
-    height: 400px;
     width: 600px;
+    height: 400px;
 }
 
 .cover {
