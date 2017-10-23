@@ -15,7 +15,7 @@
     </head>
     <body>
         <img src="${pageContext.request.contextPath}/img/space.jpg" class="img-responsive" alt="Space" id="splash-pic">
-        <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197" id="mainNavbar">
+        <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="200" id="mainNavbar">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#subNavbar">
@@ -60,7 +60,8 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid" style="height: 1070px;"> 
+                        
+        <div class="container-fluid"> 
             <noscript>
             <div class="error message">
                 <h3>This site looks best with JavaScript, please enable it.</h3>
