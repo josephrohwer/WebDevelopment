@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="shortcut icon" href="favicon.ico">
     </head>
     <body>
         <div class="container-fluid" id="navHeader"></div>
@@ -90,7 +92,7 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         <a href="#">                         
-                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/122_PIA17001.jpg" alt="Image from NASA." id="recentPlanet">
+                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/198_PIA17999(S).jpg" alt="Image from NASA." id="recentPlanet">
                             <div class="caption">
                                 <p>Lorem ipsum...</p>
                             </div>
@@ -132,17 +134,19 @@
             </div>
         </div>
         <footer class="container-fluid text-center">
-            <div class="col-md-3">
-                Personal Website
-            </div>
-            <div class="col-md-3">
-                GitHub
-            </div>
-            <div class="col-md-3">
-                Twitter
-            </div>
-            <div class="col-md-3">
-                LinkedIn
+            <div class="col-xs-4 col-xs-offset-4">
+                <div class="col-xs-3">
+                    <a href="http://josephrohwer.com/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-3">
+                    <a href="https://github.com/josephrohwer" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-3">
+                    <a href="https://twitter.com/josephrohwer" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-xs-3">
+                    <a href="https://www.linkedin.com/in/joseph-rohwer/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </div>
             </div>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
