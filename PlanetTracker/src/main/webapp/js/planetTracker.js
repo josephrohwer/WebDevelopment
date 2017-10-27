@@ -154,30 +154,27 @@ function loadPlanets() {
 }
 
 function loadSearchResults(data) {
-    clearSearchResults();
+    clearPlanetTable();
 
-    var searchResultRows = $('#searchResultRows');
+    var contentRows = $('#contentRows');
 
     $.each(data, function (index, planet) {
         var name = planet.name;
         var planetType = planet.planetType;
-
+        var id = planet.planetId;
+        
         var row = '<tr>';
         row += '<td>' + name + '</td>';
         row += '<td>' + planetType + '</td>';
-        row += '<td></td>';
-        row += '<td></td>';
+        row += '<td><a onclick="showEditForm(' + id + ')">Edit</a></td>';
+        row += '<td><a onclick="deletePlanet(' + id + ')">Delete</a></td>';
         row += '</tr>';
-        searchResultRows.append(row);
+        contentRows.append(row);
     });
 }
 
 function clearPlanetTable() {
     $('#contentRows').empty();
-}
-
-function clearSearchResults() {
-    $('#searchResultRows').empty();
 }
 
 function showEditForm(planetId) {
@@ -240,7 +237,7 @@ function checkAndDisplayValidationErrors(input, select) {
             errorMessages.push(errorField + ' ' + this.validationMessage);
         }
     });
-    
+
     select.each(function () {
         if (!this.validity.valid)
         {

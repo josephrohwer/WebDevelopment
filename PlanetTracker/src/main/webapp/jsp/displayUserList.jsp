@@ -33,9 +33,6 @@
                             <a href="${pageContext.request.contextPath}/displayPlanetsPage">Planets</a>
                         </li>
                         <li>                        
-                            <a href="${pageContext.request.contextPath}/displaySearchPage">Search</a>
-                        </li>
-                        <li>                        
                             <a href="#">About</a>
                         </li> 
                         <li class="active"> 
