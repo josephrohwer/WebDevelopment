@@ -1,6 +1,7 @@
 * {
 font-family: 'Open Sans', sans-serif;
 }
+
 #navHeader {
     background-image: url("../img/space.jpg");
     height: 200px;
@@ -31,14 +32,37 @@ font-family: 'Open Sans', sans-serif;
     object-fit: cover;
 }
 
-footer .fa {
-    font-size: 30px;
-    color: white;
+#addPlanetHeader {
+    float: left;
+}
+
+#addButton {
+    float: right;
+    margin-top: 25px;
+    margin-left: 20px
+}
+
+table .fa-pencil {
+    color: blue;
     transition: all .2s ease-in-out;
 }
 
-footer .fa:hover {
-  color: LightBlue;
+table .fa-trash {
+    color: red;
+    transition: all .2s ease-in-out;
+}
+
+table .fa:hover {
+    transform: scale(1.5);
+}
+
+footer .fa {
+    font-size: 30px;
+    color: white;
+}
+
+footer .fa p {
+    font-size: 11px;
 }
 
 footer {

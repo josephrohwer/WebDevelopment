@@ -30,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="subNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active">                        
-                            <a href="${pageContext.request.contextPath}/displayPlanetsPage">Planets</a>
+                            <a href="${pageContext.request.contextPath}/jsp/planets.jsp">Planets</a>
                         </li>
                         <li>                        
                             <a href="#">About</a>
@@ -67,19 +67,25 @@
             </noscript>
             <ul class="list-group" id="errorMessages"></ul>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4 col-md-offset-2">
 
                     <!-- PLANET TABLE PLANET TABLE PLANET TABLE PLANET TABLE -->               
 
                     <div id="planetTableDiv">
-                        <h2>Planets</h2>
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addPlanetModal">Add Planet</button>
+                        <div class="row">
+                            <div class="col-md-8">
+                              <h2 id="addPlanetHeader">Planets</h2>  
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPlanetModal" id ="addButton">Add Planet</button>  
+                            </div>
+                        </div>
                         <table id="planetTable" class="table table-hover">
                             <tr>
                                 <th width="40%">Name</th>
-                                <th width="30%">Planet Type</th>
-                                <th width="15%"></th>
-                                <th width="15%"></th>
+                                <th width="40%">Planet Type</th>
+                                <th width="10%"></th>
+                                <th width="10%"></th>
                             </tr>
                             <tbody id="contentRows"></tbody>
                         </table>                    
@@ -155,7 +161,7 @@
                 <!-- EDITING PLANET EDITING PLANET EDITING PLANET EDITING PLANET -->
                 <!-- SEARCHING PLANET SEARCHING PLANET SEARCHING PLANET SEARCHING PLANET -->
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h2>Search</h2>
                     <form class="form-horizontal" role="form" id="search-form">
                         <div class="form-group">
@@ -220,24 +226,25 @@
             </div> <!-- END OF ROW -->
         </div> <!-- END OF CONTAINER -->
         <footer class="container-fluid text-center">
-            <div class="col-xs-4 col-xs-offset-4">
-                <div class="col-xs-3">
-                    <a href="http://josephrohwer.com/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="col-md-3 col-xs-6">
+                    <a href="http://josephrohwer.com/" target="_blank"><i class="fa fa-home" aria-hidden="true"><p>Joseph</p></i></a>
                 </div>
-                <div class="col-xs-3">
-                    <a href="https://github.com/josephrohwer" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                <div class="col-md-3 col-xs-6">
+                    <a href="https://github.com/josephrohwer" target="_blank"><i class="fa fa-github" aria-hidden="true"><p>GitHub</p></i></a>
                 </div>
-                <div class="col-xs-3">
-                    <a href="https://twitter.com/josephrohwer" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <div class="col-md-3 col-xs-6">
+                    <a href="https://twitter.com/josephrohwer" target="_blank"><i class="fa fa-twitter" aria-hidden="true"><p>Twitter</p></i></a>
                 </div>
-                <div class="col-xs-3">
-                    <a href="https://www.linkedin.com/in/joseph-rohwer/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <div class="col-md-3 col-xs-6">
+                    <a href="https://www.linkedin.com/in/joseph-rohwer/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"><p>LinkedIn</p></i></a>
                 </div>
             </div>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <%@include file="addPlanetModal.jsp"%>
+        <%@include file="planetDetailsModal.jsp"%>
         <script src="${pageContext.request.contextPath}/js/planetTracker.js"></script>
     </body>
 </html>

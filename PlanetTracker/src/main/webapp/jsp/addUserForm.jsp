@@ -30,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="subNavbar">
                     <ul class="nav navbar-nav">
                         <li>                        
-                            <a href="${pageContext.request.contextPath}/displayPlanetsPage">Planets</a>
+                            <a href="${pageContext.request.contextPath}/jsp/planets.jsp">Planets</a>
                         </li>
                         <li>                        
                             <a href="#">About</a>
@@ -74,18 +74,18 @@
             </form>
         </div>
         <footer class="container-fluid text-center">
-            <div class="col-xs-4 col-xs-offset-4">
-                <div class="col-xs-3">
-                    <a href="http://josephrohwer.com/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="col-md-3 col-xs-6">
+                    <a href="http://josephrohwer.com/" target="_blank"><i class="fa fa-home" aria-hidden="true"><p>Joseph</p></i></a>
                 </div>
-                <div class="col-xs-3">
-                    <a href="https://github.com/josephrohwer" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                <div class="col-md-3 col-xs-6">
+                    <a href="https://github.com/josephrohwer" target="_blank"><i class="fa fa-github" aria-hidden="true"><p>GitHub</p></i></a>
                 </div>
-                <div class="col-xs-3">
-                    <a href="https://twitter.com/josephrohwer" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <div class="col-md-3 col-xs-6">
+                    <a href="https://twitter.com/josephrohwer" target="_blank"><i class="fa fa-twitter" aria-hidden="true"><p>Twitter</p></i></a>
                 </div>
-                <div class="col-xs-3">
-                    <a href="https://www.linkedin.com/in/joseph-rohwer/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <div class="col-md-3 col-xs-6">
+                    <a href="https://www.linkedin.com/in/joseph-rohwer/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"><p>LinkedIn</p></i></a>
                 </div>
             </div>
         </footer>

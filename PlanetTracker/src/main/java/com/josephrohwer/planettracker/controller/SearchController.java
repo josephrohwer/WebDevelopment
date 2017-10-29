@@ -32,11 +32,6 @@ public class SearchController {
         this.dao = dao;
     }
 
-    @RequestMapping(value = "/displaySearchPage", method = RequestMethod.GET)
-    public String displaySearchPage() {
-        return "search";
-    }
-
     @RequestMapping(value = "/search/planets", method = RequestMethod.POST)
     @ResponseBody
     public List<Planet> searchPlanets(@RequestBody Map<String, String> searchMap) {

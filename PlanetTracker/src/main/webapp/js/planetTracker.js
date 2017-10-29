@@ -138,8 +138,8 @@ function loadPlanets() {
                 var row = '<tr>';
                 row += '<td>' + name + '</td>';
                 row += '<td>' + planetType + '</td>';
-                row += '<td><a onclick="showEditForm(' + id + ')">Edit</a></td>';
-                row += '<td><a onclick="deletePlanet(' + id + ')">Delete</a></td>';
+                row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
+                row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
                 row += '</tr>';
                 contentRows.append(row);
             });
@@ -162,12 +162,12 @@ function loadSearchResults(data) {
         var name = planet.name;
         var planetType = planet.planetType;
         var id = planet.planetId;
-        
+
         var row = '<tr>';
         row += '<td>' + name + '</td>';
         row += '<td>' + planetType + '</td>';
-        row += '<td><a onclick="showEditForm(' + id + ')">Edit</a></td>';
-        row += '<td><a onclick="deletePlanet(' + id + ')">Delete</a></td>';
+        row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
+        row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
         row += '</tr>';
         contentRows.append(row);
     });
