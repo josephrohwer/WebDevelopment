@@ -74,21 +74,23 @@
                     <div id="planetTableDiv">
                         <div class="row">
                             <div class="col-md-8">
-                              <h2 id="addPlanetHeader">Planets</h2>  
+                                <h2 id="addPlanetHeader">Planets</h2>  
                             </div>
                             <div class="col-md-4">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPlanetModal" id ="addButton">Add Planet</button>  
                             </div>
                         </div>
-                        <table id="planetTable" class="table table-hover">
-                            <tr>
-                                <th width="40%">Name</th>
-                                <th width="40%">Planet Type</th>
-                                <th width="10%"></th>
-                                <th width="10%"></th>
-                            </tr>
-                            <tbody id="contentRows"></tbody>
-                        </table>                    
+                        <div class="table-responsive">
+                            <table id="planetTable" class="table table-hover">
+                                <tr>
+                                    <th width="40%">Name</th>
+                                    <th width="40%">Planet Type</th>
+                                    <th width="10%"></th>
+                                    <th width="10%"></th>
+                                </tr>
+                                <tbody id="contentRows"></tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- PLANET TABLE PLANET TABLE PLANET TABLE PLANET TABLE -->               
@@ -165,26 +167,26 @@
                     <h2>Search</h2>
                     <form class="form-horizontal" role="form" id="search-form">
                         <div class="form-group">
-                            <label for="search-name" class="col-md-4 control-label">Name:</label>
-                            <div class="col-md-8">
+                            <div class="col-md-12">
+                                <p>Name</p>
                                 <input type="text" class="form-control" id="search-name" maxlength="50" placeholder="Name"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="search-avg-temp" class="col-md-4 control-label">Average Temp:</label>
-                            <div class="col-md-8">
+                            <div class="col-md-12">
+                                <p>Average Temp</p>
                                 <input type="number" class="form-control" id="search-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="search-rad-level" class="col-md-4 control-label">Radiation Level:</label>
-                            <div class="col-md-8">
+                            <div class="col-md-12">
+                                <p>Radiation Level</p>
                                 <input type="number" class="form-control" id="search-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="search-planet-type" class="col-md-4 control-label">Planet Type:</label>
-                            <div class="col-md-8">
+                            <div class="col-md-12">
+                                <p>Planet Type</p>
                                 <select class="form-control" id="search-planet-type">
                                     <option value="" selected disabled hidden>Select Planet Type</option>
                                     <option value="Rocky Planet">Rocky Planet</option>
@@ -199,8 +201,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="search-life-type" class="col-md-4 control-label">Life Type:</label>
-                            <div class="col-md-8">
+                            <div class="col-md-12">
+                                <p>Life Type</p>
                                 <select class="form-control" id="search-life-type">
                                     <option value="" selected disabled hidden>Select Life Type</option>
                                     <option value="Rocky Planet">Devoid</option>
