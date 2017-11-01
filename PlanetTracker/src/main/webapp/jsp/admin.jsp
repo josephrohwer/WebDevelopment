@@ -37,7 +37,7 @@
                         </li> 
                         <li class="active"> 
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                <a href="${pageContext.request.contextPath}/displayUserList">Admin</a>
+                                <a href="${pageContext.request.contextPath}/jsp/admin.jsp">Admin</a>
                             </sec:authorize>
                         </li> 
                     </ul>
@@ -65,13 +65,26 @@
                 <h3>This site looks best with JavaScript, please enable it.</h3>
             </div>    
             </noscript>
-            <h1>Users</h1>
-            <a href="displayUserForm">Add a User</a><br/>
-            <hr/>
-            <c:forEach var="user" items="${users}">
-                <c:out value="${user.username}"/> |
-                <a href="deleteUser?username=${user.username}">Delete</a><br/><br/>
-            </c:forEach>
+            <ul class="list-group" id="errorMessages"></ul>
+            <div id="userTableDiv">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 id="addHeader">Users</h2>  
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal" id ="addButton">Add User</button>  
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="userTable" class="table table-hover">
+                        <tr>
+                            <th width="80%">Username</th>
+                            <th width="20%"></th>
+                        </tr>
+                        <tbody id="contentRows"></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <footer class="container-fluid text-center">
             <div class="col-md-4 col-md-offset-4">
@@ -91,5 +104,7 @@
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <%@include file="addUserModal.jsp"%>
+        <script src="${pageContext.request.contextPath}/js/userTracker.js"></script>
     </body>
 </html>

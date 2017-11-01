@@ -1,15 +1,9 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 $(document).ready(function () {
     loadPlanets();
 
-    $('#add-button').click(function (event) {
+    $('#add-planet-button').click(function (event) {
 
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-form').find('input'), $('#add-form').find('select'));
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-planet-form').find('input'), $('#add-planet-form').find('select'));
 
         if (haveValidationErrors) {
             return false;

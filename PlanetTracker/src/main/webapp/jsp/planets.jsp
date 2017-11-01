@@ -37,7 +37,7 @@
                         </li> 
                         <li> 
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                <a href="${pageContext.request.contextPath}/displayUserList">Admin</a>
+                                <a href="${pageContext.request.contextPath}/jsp/admin.jsp">Admin</a>
                             </sec:authorize>
                         </li> 
                     </ul>
@@ -74,7 +74,7 @@
                     <div id="planetTableDiv">
                         <div class="row">
                             <div class="col-md-8">
-                                <h2 id="addPlanetHeader">Planets</h2>  
+                                <h2 id="addHeader">Planets</h2>  
                             </div>
                             <div class="col-md-4">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPlanetModal" id ="addButton">Add Planet</button>  

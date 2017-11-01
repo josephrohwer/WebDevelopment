@@ -6,6 +6,9 @@
 package com.josephrohwer.planettracker.model;
 
 import java.util.ArrayList;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -14,8 +17,13 @@ import java.util.ArrayList;
 public class User {
 
     private int id;
+    @NotEmpty
+    @Length(max = 20)
     private String username;
+    @NotEmpty
+    @Length(max = 256)
     private String password;
+    @Size(max=2)
     private ArrayList<String> authorities = new ArrayList<>();
 
     public int getId() {

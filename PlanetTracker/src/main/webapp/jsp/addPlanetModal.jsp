@@ -5,7 +5,7 @@
                 <h4 class="modal-title">Add Planet</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form" id="add-form">
+                <form class="form-horizontal" role="form" id="add-planet-form">
                     <div class="form-group">
                         <label for="add-name" class="col-md-4 control-label">Name:</label>
                         <div class="col-md-8">
@@ -56,7 +56,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="add-button" class="btn btn-default" data-dismiss="modal">Add Planet</button>
+                <button type="button" id="add-planet-button" class="btn btn-default" data-dismiss="modal">Add Planet</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>
