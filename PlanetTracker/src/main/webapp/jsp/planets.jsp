@@ -122,7 +122,7 @@
                                 <label for="edit-planet-type" class="col-md-4 control-label">Planet Type:</label>
                                 <div class="col-md-8">
                                     <select class="form-control" id="edit-planet-type" required>
-                                        <option value="" selected disabled hidden>Select Planet Type</option>
+                                        <option value="" selected disabled hidden>- Select Planet Type -</option>
                                         <option value="Rocky Planet">Rocky Planet</option>
                                         <option value="Gas Planet">Gas Planet</option>
                                         <option value="Ice Planet">Ice Planet</option>
@@ -137,7 +137,7 @@
                                 <label for="edit-life-type" class="col-md-4 control-label">Life Type:</label>
                                 <div class="col-md-8">
                                     <select class="form-control" id="edit-life-type" required>
-                                        <option value="" selected disabled hidden>Select Life Type</option>
+                                        <option value="" selected disabled hidden>- Select Life Type -</option>
                                         <option value="Rocky Planet">Devoid</option>
                                         <option value="Gas Planet">Microbial</option>
                                         <option value="Ice Planet">Primitive</option>
@@ -188,7 +188,7 @@
                             <div class="col-md-12">
                                 <p>Planet Type</p>
                                 <select class="form-control" id="search-planet-type">
-                                    <option value="" selected disabled hidden>Select Planet Type</option>
+                                    <option value="" selected disabled hidden>- Select Planet Type -</option>
                                     <option value="Rocky Planet">Rocky Planet</option>
                                     <option value="Gas Planet">Gas Planet</option>
                                     <option value="Ice Planet">Ice Planet</option>
@@ -204,7 +204,7 @@
                             <div class="col-md-12">
                                 <p>Life Type</p>
                                 <select class="form-control" id="search-life-type">
-                                    <option value="" selected disabled hidden>Select Life Type</option>
+                                    <option value="" selected disabled hidden>- Select Life Type -</option>
                                     <option value="Rocky Planet">Devoid</option>
                                     <option value="Gas Planet">Microbial</option>
                                     <option value="Ice Planet">Primitive</option>

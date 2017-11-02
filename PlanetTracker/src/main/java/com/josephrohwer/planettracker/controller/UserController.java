@@ -54,10 +54,9 @@ public class UserController {
         String hashPw = encoder.encode(clearPw);
         user.setPassword(hashPw);
 
-        user.addAuthority("ROLE_USER");
-        //if (null != user.getParameter("isAdmin")) {
-        //    user.addAuthority("ROLE_ADMIN");
-        //}
+        if (user.getAuthorities().contains("ROLE_ADMIN")) {
+            user.addAuthority("ROLE_USER");
+        }
 
         return dao.addUser(user);
     }

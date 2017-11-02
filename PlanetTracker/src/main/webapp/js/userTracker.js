@@ -15,7 +15,7 @@ $(document).ready(function () {
             data: JSON.stringify({
                 username: $('#add-username').val(),
                 password: $('#add-password').val(),
-                authority: $('#add-authority').val()
+                authorities: [$('#add-authority').val()]
             }),
             headers: {
                 'Accept': 'application/json',

@@ -19,15 +19,18 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="add-authority" class="col-md-4 control-label">Admin User:</label>
+                        <label for="add-authority" class="col-md-4 control-label">Authority:</label>
                         <div class="col-md-8">
-                            <input type="checkbox" class="form-control" id="add-authority"/>
+                            <select class="form-control" id="add-authority" required>
+                                <option value="ROLE_USER">User</option>
+                                <option value="ROLE_ADMIN">Admin</option>
+                            </select>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="add-user-button" class="btn btn-default" data-dismiss="modal">Add User</button>
+                <button type="button" id="add-user-button" class="btn btn-primary" data-dismiss="modal">Add User</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>

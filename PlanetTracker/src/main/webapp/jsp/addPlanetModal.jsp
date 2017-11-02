@@ -28,7 +28,7 @@
                         <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
                         <div class="col-md-8">
                             <select class="form-control" id="add-planet-type" required>
-                                <option value="" selected disabled hidden>Select Planet Type</option>
+                                <option value="" selected disabled hidden>- Select Planet Type -</option>
                                 <option value="Rocky Planet">Rocky Planet</option>
                                 <option value="Gas Planet">Gas Planet</option>
                                 <option value="Ice Planet">Ice Planet</option>
@@ -43,7 +43,7 @@
                         <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
                         <div class="col-md-8">
                             <select class="form-control" id="add-life-type" required>
-                                <option value="" selected disabled hidden>Select Life Type</option>
+                                <option value="" selected disabled hidden>- Select Life Type -</option>
                                 <option value="Rocky Planet">Devoid</option>
                                 <option value="Gas Planet">Microbial</option>
                                 <option value="Ice Planet">Primitive</option>
@@ -56,7 +56,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="add-planet-button" class="btn btn-default" data-dismiss="modal">Add Planet</button>
+                <button type="button" id="add-planet-button" class="btn btn-primary" data-dismiss="modal">Add Planet</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>

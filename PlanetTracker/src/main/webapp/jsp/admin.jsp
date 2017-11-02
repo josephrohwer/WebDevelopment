@@ -66,23 +66,25 @@
             </div>    
             </noscript>
             <ul class="list-group" id="errorMessages"></ul>
-            <div id="userTableDiv">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h2 id="addHeader">Users</h2>  
+            <div class="col-md-4 col-md-offset-4">
+                <div id="userTableDiv">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2 id="addHeader">Users</h2>  
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal" id ="addButton">Add User</button>  
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal" id ="addButton">Add User</button>  
+                    <div class="table-responsive">
+                        <table id="userTable" class="table table-hover">
+                            <tr>
+                                <th width="90%">Username</th>
+                                <th width="10%"></th>
+                            </tr>
+                            <tbody id="contentRows"></tbody>
+                        </table>
                     </div>
-                </div>
-                <div class="table-responsive">
-                    <table id="userTable" class="table table-hover">
-                        <tr>
-                            <th width="80%">Username</th>
-                            <th width="20%"></th>
-                        </tr>
-                        <tbody id="contentRows"></tbody>
-                    </table>
                 </div>
             </div>
         </div>
