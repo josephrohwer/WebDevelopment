@@ -12,7 +12,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="shortcut icon" href="favicon.ico">
     </head>
     <body>
         <div class="container-fluid" id="navHeader"></div>
@@ -24,12 +24,12 @@
             </div>
         </nav>
         <div class="container-fluid">
-            <noscript>
-            <div class="error message">
-                <h3>This site looks best with JavaScript, please enable it.</h3>
-            </div>    
-            </noscript>
-            <div>
+            <div class="col-md-8 col-md-offset-2">
+                <noscript>
+                <div class="error message">
+                    <h3>This site looks best with JavaScript, please enable it.</h3>
+                </div>    
+                </noscript>
                 <h1>Uh oh! Something broke...</h1>
                 <h3>${errorMessage}</h3>
             </div>
