@@ -53,7 +53,7 @@ function loadUsers() {
 
                 var row = '<tr>';
                 row += '<td>' + username + '</td>';
-                row += '<td><a onclick="deleteUser(' + username + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
+                row += '<td><a onclick="deleteUser(\'' + username + '\')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
                 row += '</tr>';
                 contentRows.append(row);
             });

@@ -13,7 +13,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico">
     </head>
     <body>
         <div class="container-fluid" id="navHeader"></div>
@@ -140,12 +140,12 @@
                                     <p>Life Type</p>
                                     <select class="form-control" id="edit-life-type" required>
                                         <option value="" selected disabled hidden>- Select Life Type -</option>
-                                        <option value="Rocky Planet">Devoid</option>
-                                        <option value="Gas Planet">Microbial</option>
-                                        <option value="Ice Planet">Primitive</option>
-                                        <option value="Iron Planet">Advanced</option>
-                                        <option value="Lava Planet">Intelligent</option>
-                                        <option value="Ocean Planet">Hyper-Intelligent</option>
+                                        <option value="Devoid">Devoid</option>
+                                        <option value="Microbial">Microbial</option>
+                                        <option value="Primitive">Primitive</option>
+                                        <option value="Advanced">Advanced</option>
+                                        <option value="Intelligent">Intelligent</option>
+                                        <option value="Hyper-Intelligent">Hyper-Intelligent</option>
                                     </select>
                                 </div>
                             </div>
@@ -205,18 +205,18 @@
                                 <p>Life Type</p>
                                 <select class="form-control" id="search-life-type">
                                     <option value="" selected disabled hidden>- Select Life Type -</option>
-                                    <option value="Rocky Planet">Devoid</option>
-                                    <option value="Gas Planet">Microbial</option>
-                                    <option value="Ice Planet">Primitive</option>
-                                    <option value="Iron Planet">Advanced</option>
-                                    <option value="Lava Planet">Intelligent</option>
-                                    <option value="Ocean Planet">Hyper-Intelligent</option>
+                                    <option value="Devoid">Devoid</option>
+                                    <option value="Microbial">Microbial</option>
+                                    <option value="Primitive">Primitive</option>
+                                    <option value="Advanced">Advanced</option>
+                                    <option value="Intelligent">Intelligent</option>
+                                    <option value="Hyper-Intelligent">Hyper-Intelligent</option>
                                     <option value="">All</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-offset-4 col-md-8">
+                            <div class="col-md-12" align="right">
                                 <input type="button" class="btn btn-primary" id="search-button" value="Search"/>
                             </div>
                         </div>

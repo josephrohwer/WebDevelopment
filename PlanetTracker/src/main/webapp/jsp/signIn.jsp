@@ -12,7 +12,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico">
     </head>
     <body>
         <div class="container-fluid" id="navHeader"></div>
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-12" align="center">
                                 <input type="submit" class="btn btn-primary" id="sign-in-button" value="Sign In"/>
                             </div>
                         </div>

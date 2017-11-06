@@ -1,5 +1,5 @@
 * {
-font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #navHeader {
@@ -42,10 +42,6 @@ font-family: 'Open Sans', sans-serif;
     margin-left: 20px
 }
 
-#search-button {
-    float: right;
-}
-
 #add-planet-form p, #edit-form p, #search-form p, #add-user-form p {
     margin: 0;
 }
@@ -65,8 +61,10 @@ table .fa:hover {
 }
 
 .table-responsive {
-     overflow: auto; 
-     height: 350px;
+    overflow: auto; 
+    overflow-x: auto;
+    height: 350px;
+    margin-bottom: 20px;
 }
 
 footer .fa {

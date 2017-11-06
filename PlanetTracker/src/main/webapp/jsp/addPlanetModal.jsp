@@ -44,12 +44,12 @@
                             <p>Life Type</p>
                             <select class="form-control" id="add-life-type" required>
                                 <option value="" selected disabled hidden>- Select Life Type -</option>
-                                <option value="Rocky Planet">Devoid</option>
-                                <option value="Gas Planet">Microbial</option>
-                                <option value="Ice Planet">Primitive</option>
-                                <option value="Iron Planet">Advanced</option>
-                                <option value="Lava Planet">Intelligent</option>
-                                <option value="Ocean Planet">Hyper-Intelligent</option>
+                                <option value="Devoid">Devoid</option>
+                                <option value="Microbial">Microbial</option>
+                                <option value="Primitive">Primitive</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Intelligent">Intelligent</option>
+                                <option value="Hyper-Intelligent">Hyper-Intelligent</option>
                             </select>
                         </div>
                     </div>
