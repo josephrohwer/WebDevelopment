@@ -42,6 +42,14 @@ font-family: 'Open Sans', sans-serif;
     margin-left: 20px
 }
 
+#search-button {
+    float: right;
+}
+
+#add-planet-form p, #edit-form p, #search-form p, #add-user-form p {
+    margin: 0;
+}
+
 table .fa-pencil {
     color: blue;
     transition: all .2s ease-in-out;

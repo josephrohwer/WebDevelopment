@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <input type="submit" class="btn btn-default" id="sign-in-button" value="Sign In"/>
+                                <input type="submit" class="btn btn-primary" id="sign-in-button" value="Sign In"/>
                             </div>
                         </div>
                     </form> 

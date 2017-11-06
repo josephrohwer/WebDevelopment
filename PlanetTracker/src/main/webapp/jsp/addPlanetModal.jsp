@@ -7,26 +7,26 @@
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="add-planet-form">
                     <div class="form-group">
-                        <label for="add-name" class="col-md-4 control-label">Name:</label>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
+                            <p>Name</p>
                             <input type="text" class="form-control" id="add-name" maxlength="50" placeholder="Name" required/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="add-avg-temp" class="col-md-4 control-label">Average Temp:</label>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
+                            <p>Average Temp</p>
                             <input type="number" class="form-control" id="add-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)" required/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="add-rad-level" class="col-md-4 control-label">Radiation Level:</label>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
+                            <p>Radiation Level</p>
                             <input type="number" class="form-control" id="add-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)" required/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="add-planet-type" class="col-md-4 control-label">Planet Type:</label>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
+                            <p>Planet Type</p>
                             <select class="form-control" id="add-planet-type" required>
                                 <option value="" selected disabled hidden>- Select Planet Type -</option>
                                 <option value="Rocky Planet">Rocky Planet</option>
@@ -40,8 +40,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="add-life-type" class="col-md-4 control-label">Life Type:</label>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
+                            <p>Life Type</p>
                             <select class="form-control" id="add-life-type" required>
                                 <option value="" selected disabled hidden>- Select Life Type -</option>
                                 <option value="Rocky Planet">Devoid</option>
