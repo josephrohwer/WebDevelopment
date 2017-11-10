@@ -130,7 +130,7 @@ function loadPlanets() {
                 var id = planet.planetId;
 
                 var row = '<tr>';
-                row += '<td>' + name + '</td>';
+                row += '<td><a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">' + name + '</a></td>';
                 row += '<td>' + planetType + '</td>';
                 row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
                 row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
@@ -146,6 +146,34 @@ function loadPlanets() {
         }
     });
 }
+
+$('#planetDetailsModal').on('shown.bs.modal', function (event) {
+    var element = $(event.relatedTarget);
+    var planetId = element.attr("id");
+    var nameDetails = document.getElementById('detail-name');
+    var avgTempDetails = document.getElementById('detail-avg-temp');
+    var radLevelDetails = document.getElementById('detail-rad-level');
+    var planetTypeDetails = document.getElementById('detail-planet-type');
+    var lifeTypeDetails = document.getElementById('detail-life-type');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8084/PlanetTracker/planet/' + planetId,
+        success: function (data, status) {
+            nameDetails.innerHTML = data.name;
+            avgTempDetails.innerHTML = data.avgTemp + " (F)";
+            radLevelDetails.innerHTML = data.radLevel + " (Sv)";
+            planetTypeDetails.innerHTML = data.planetType;
+            lifeTypeDetails.innerHTML = data.lifeType;
+        },
+        error: function () {
+            $('#errorMessages')
+                    .append($('<li>')
+                            .attr({class: 'list-group-item list-group-item-danger'})
+                            .text('Error calling web service.  Please try again later.'));
+        }
+    });
+});
 
 function loadSearchResults(data) {
     clearPlanetTable();

@@ -5,11 +5,32 @@
                 <h4 class="modal-title">Planet Name</h4>
             </div>
             <div class="modal-body">
-                <p id="detail-name"></p>
-                <p id="detail-avg-temp"></p>
-                <p id="detail-rad-level"></p>
-                <p id="detail-planet-type"></p>
-                <p id="detail-life-type"></p>
+                <div class="table-responsive">
+                    <table id="planetTable" class="table table-hover">
+                        <tbody id="contentRows">
+                            <tr>
+                                <td width="60%"><b>Name</b></td>
+                                <td id="detail-name"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Average Temp</b></td>
+                                <td id="detail-avg-temp"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Radiation Level</b></td>
+                                <td id="detail-rad-level"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Planet Type</b></td>
+                                <td id="detail-planet-type"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Life Type</b></td>
+                                <td id="detail-life-type"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
