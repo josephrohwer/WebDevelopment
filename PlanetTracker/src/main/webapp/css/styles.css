@@ -23,7 +23,7 @@
     padding-top: 70px;
 }
 
-#recentPlanet {
+#recentPlanet, detail-image-url {
     width: 600px;
     height: 400px;
 }

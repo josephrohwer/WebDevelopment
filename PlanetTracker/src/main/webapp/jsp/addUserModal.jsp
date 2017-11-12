@@ -22,6 +22,7 @@
                         <div class="col-md-12">
                             <p>Authority</p>
                             <select class="form-control" id="add-authority" required>
+                                <option value="" selected disabled hidden>- Select User Type -</option>
                                 <option value="ROLE_USER">User</option>
                                 <option value="ROLE_ADMIN">Admin</option>
                             </select>

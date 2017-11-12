@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $('#add-user-button').click(function (event) {
 
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-user-form').find('input'));
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-user-form').find('input'), $('#add-user-form').find('select'));
 
         if (haveValidationErrors) {
             return false;
@@ -84,11 +84,19 @@ function deleteUser(username) {
     }
 }
 
-function checkAndDisplayValidationErrors(input) {
+function checkAndDisplayValidationErrors(input, select) {
     $('#errorMessages').empty();
     var errorMessages = [];
 
     input.each(function () {
+        if (!this.validity.valid)
+        {
+            var errorField = $('label[for=' + this.id + ']').text();
+            errorMessages.push(errorField + ' ' + this.validationMessage);
+        }
+    });
+
+    select.each(function () {
         if (!this.validity.valid)
         {
             var errorField = $('label[for=' + this.id + ']').text();
