@@ -104,6 +104,12 @@
                         <form class="form-horizontal" role="form" id="edit-form">
                             <div class="form-group">
                                 <div class="col-md-12">
+                                    <p>Image URL</p>
+                                    <input type="url" class="form-control" id="edit-image-url" maxlength="256" placeholder="Image URL" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
                                     <p>Name</p>
                                     <input type="text" class="form-control" id="edit-name" maxlength="50" placeholder="Name" required/>
                                 </div>

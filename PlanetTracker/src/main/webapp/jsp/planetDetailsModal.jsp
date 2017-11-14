@@ -5,9 +5,7 @@
                 <h4 class="modal-title" id="detail-name"></h4>
             </div>
             <div class="modal-body">
-                <div class="thumbnail">
-                    <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg" alt="Image from NASA." id="detail-image-url">
-                </div>
+                <div class="thumbnail" id="detail-image-url"></div>
                 <table id="planetTable" class="table table-hover">
                     <tbody id="contentRows">
                         <tr>

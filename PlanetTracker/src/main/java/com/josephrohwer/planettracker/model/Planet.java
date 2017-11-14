@@ -20,6 +20,9 @@ public class Planet {
 
     private long planetId;
     @NotEmpty
+    @Length(max = 256)
+    private String imageURL;
+    @NotEmpty
     @Length(max = 50)
     private String name;
     @NotNull
@@ -45,6 +48,14 @@ public class Planet {
         this.planetId = planetId;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+    
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+    
     public String getName() {
         return name;
     }
@@ -84,7 +95,7 @@ public class Planet {
     public void setLifeType(String lifeType) {
         this.lifeType = lifeType;
     }
-
+// TODO: Figure this out with imageURL.
     @Override
     public int hashCode() {
         int hash = 3;
@@ -96,7 +107,7 @@ public class Planet {
         hash = 97 * hash + Objects.hashCode(this.lifeType);
         return hash;
     }
-
+// TODO: Figure this out with imageURL.
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

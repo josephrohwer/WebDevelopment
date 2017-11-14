@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS `planets`(
     `planet_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `image_url` VARCHAR(256) NOT NULL,
     `name` VARCHAR(50) NOT NULL,
     `avg_temp` INT(5) NOT NULL,
     `rad_level` INT(5) NOT NULL,

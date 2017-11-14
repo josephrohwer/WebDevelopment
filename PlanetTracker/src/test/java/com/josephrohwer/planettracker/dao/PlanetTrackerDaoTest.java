@@ -56,6 +56,7 @@ public class PlanetTrackerDaoTest {
     @Test
     public void addGetDeletePlanet() {
         Planet np = new Planet();
+        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
         np.setName("Earth");
         np.setAvgTemp(72);
         np.setRadLevel(12);
@@ -71,6 +72,7 @@ public class PlanetTrackerDaoTest {
     @Test
     public void addUpdatePlanet() {
         Planet np = new Planet();
+        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
         np.setName("Mars");
         np.setAvgTemp(45);
         np.setRadLevel(54);
@@ -86,6 +88,7 @@ public class PlanetTrackerDaoTest {
     @Test
     public void getAllPlanets() {
         Planet np = new Planet();
+        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
         np.setName("Mars");
         np.setAvgTemp(-45);
         np.setRadLevel(54);
@@ -94,6 +97,7 @@ public class PlanetTrackerDaoTest {
         dao.addPlanet(np);
 
         Planet np2 = new Planet();
+        np2.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
         np2.setName("Earth");
         np2.setAvgTemp(72);
         np2.setRadLevel(12);
@@ -107,6 +111,7 @@ public class PlanetTrackerDaoTest {
     @Test
     public void searchPlanets() {
         Planet np = new Planet();
+        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
         np.setName("Mars");
         np.setAvgTemp(-45);
         np.setRadLevel(54);
@@ -115,6 +120,7 @@ public class PlanetTrackerDaoTest {
         dao.addPlanet(np);
 
         Planet np2 = new Planet();
+        np2.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
         np2.setName("Earth");
         np2.setAvgTemp(72);
         np2.setRadLevel(12);
@@ -123,6 +129,7 @@ public class PlanetTrackerDaoTest {
         dao.addPlanet(np2);
 
         Planet np3 = new Planet();
+        np3.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
         np3.setName("Jupiter");
         np3.setAvgTemp(-45);
         np3.setRadLevel(267);

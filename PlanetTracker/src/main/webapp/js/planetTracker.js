@@ -13,6 +13,7 @@ $(document).ready(function () {
             type: 'POST',
             url: 'http://localhost:8084/PlanetTracker/planet',
             data: JSON.stringify({
+                imageURL: $('#add-image-url').val(),
                 name: $('#add-name').val(),
                 avgTemp: $('#add-avg-temp').val(),
                 radLevel: $('#add-rad-level').val(),
@@ -26,6 +27,7 @@ $(document).ready(function () {
             'dataType': 'json',
             success: function (data, status) {
                 $('#errorMessages').empty();
+                $('#add-image-url').val('');
                 $('#add-name').val('');
                 $('#add-avg-temp').val('');
                 $('#add-rad-level').val('');
@@ -54,6 +56,7 @@ $(document).ready(function () {
             url: 'http://localhost:8084/PlanetTracker/planet/' + $('#edit-planet-id').val(),
             data: JSON.stringify({
                 planetId: $('#edit-planet-id').val(),
+                imageURL: $('#edit-image-url').val(),
                 name: $('#edit-name').val(),
                 avgTemp: $('#edit-avg-temp').val(),
                 radLevel: $('#edit-rad-level').val(),
@@ -150,6 +153,7 @@ function loadPlanets() {
 $('#planetDetailsModal').on('shown.bs.modal', function (event) {
     var element = $(event.relatedTarget);
     var planetId = element.attr("id");
+    var imageURLDetails = document.getElementById('detail-image-url');
     var nameDetails = document.getElementById('detail-name');
     var avgTempDetails = document.getElementById('detail-avg-temp');
     var radLevelDetails = document.getElementById('detail-rad-level');
@@ -160,6 +164,7 @@ $('#planetDetailsModal').on('shown.bs.modal', function (event) {
         type: 'GET',
         url: 'http://localhost:8084/PlanetTracker/planet/' + planetId,
         success: function (data, status) {
+            imageURLDetails.innerHTML = ('<img class="cover" id="detail-image" src="' + data.imageURL + '">');
             nameDetails.innerHTML = data.name;
             avgTempDetails.innerHTML = data.avgTemp + " (F)";
             radLevelDetails.innerHTML = data.radLevel + " (Sv)";
@@ -206,6 +211,7 @@ function showEditForm(planetId) {
         type: 'GET',
         url: 'http://localhost:8084/PlanetTracker/planet/' + planetId,
         success: function (data, status) {
+            $('#edit-image-url').val(data.imageURL);
             $('#edit-name').val(data.name);
             $('#edit-avg-temp').val(data.avgTemp);
             $('#edit-rad-level').val(data.radLevel);
@@ -226,6 +232,7 @@ function showEditForm(planetId) {
 
 function hideEditForm() {
     $('#errorMessages').empty();
+    $('#edit-image-url').val('');
     $('#edit-name').val('');
     $('#edit-avg-temp').val('');
     $('#edit-rad-level').val('');

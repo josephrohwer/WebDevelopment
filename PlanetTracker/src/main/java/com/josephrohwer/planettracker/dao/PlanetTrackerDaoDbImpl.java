@@ -26,17 +26,16 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
 
     private static final String SQL_INSERT_PLANET
             = "insert into planets "
-            + "(name, avg_temp, rad_level, planet_type, life_type) "
-            + "values (?, ?, ?, ?, ?)";
+            + "(image_url, name, avg_temp, rad_level, planet_type, life_type) "
+            + "values (?, ?, ?, ?, ?, ?)";
     private static final String SQL_DELETE_PLANET
             = "delete from planets where planet_id = ?";
     private static final String SQL_SELECT_PLANET
             = "select * from planets where planet_id = ?";
     private static final String SQL_UPDATE_PLANET
             = "update planets set "
-            + "name = ?, avg_temp = ?, rad_level = ?, "
-            + "planet_type = ?, life_type = ? "
-            + "where planet_id = ?";
+            + "image_url = ?, name = ?, avg_temp = ?, rad_level = ?, "
+            + "planet_type = ?, life_type = ? where planet_id = ?";
     private static final String SQL_SELECT_ALL_PLANETS
             = "select * from planets";
     private static final String SQL_SELECT_PLANETS_BY_NAME
@@ -54,6 +53,7 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public Planet addPlanet(Planet planet) {
         jdbcTemplate.update(SQL_INSERT_PLANET,
+                planet.getImageURL(),
                 planet.getName(),
                 planet.getAvgTemp(),
                 planet.getRadLevel(),
@@ -74,6 +74,7 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
     @Override
     public void updatePlanet(Planet planet) {
         jdbcTemplate.update(SQL_UPDATE_PLANET,
+                planet.getImageURL(),
                 planet.getName(),
                 planet.getAvgTemp(),
                 planet.getRadLevel(),
@@ -133,6 +134,7 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
         public Planet mapRow(ResultSet rs, int rowNum) throws SQLException {
             Planet planet = new Planet();
             planet.setPlanetId(rs.getLong("planet_id"));
+            planet.setImageURL(rs.getString("image_url"));
             planet.setName(rs.getString("name"));
             planet.setAvgTemp(rs.getInt("avg_temp"));
             planet.setRadLevel(rs.getInt("rad_level"));
