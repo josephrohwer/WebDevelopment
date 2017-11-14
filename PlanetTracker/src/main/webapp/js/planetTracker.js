@@ -186,7 +186,7 @@ function loadSearchResults(data) {
         var id = planet.planetId;
 
         var row = '<tr>';
-        row += '<td>' + name + '</td>';
+        row += '<td><a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">' + name + '</a></td>';
         row += '<td>' + planetType + '</td>';
         row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
         row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
