@@ -48,6 +48,12 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
     }
 
     @Override
+    public List<Planet> getRecentPlanets() {
+        // TODO: Finish this and add a test case.
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    @Override
     public Planet getPlanetById(long planetId) {
         return planetMap.get(planetId);
     }

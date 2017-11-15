@@ -26,6 +26,9 @@ public interface PlanetTrackerDao {
     // retrieve all Planets from the data store
     public List<Planet> getAllPlanets();
 
+    // retrieve the six most recently added Planets from the data store
+    public List<Planet> getRecentPlanets();
+    
     // retrieve the Planet with the given id from the data store
     public Planet getPlanetById(long planetId);
 

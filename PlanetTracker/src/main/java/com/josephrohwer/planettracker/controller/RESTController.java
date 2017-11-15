@@ -68,4 +68,10 @@ public class RESTController {
     public List<Planet> getAllPlanets() {
         return dao.getAllPlanets();
     }
+
+    @RequestMapping(value = "/planets/recent", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Planet> getRecentPlanets() {
+        return dao.getRecentPlanets();
+    }
 }

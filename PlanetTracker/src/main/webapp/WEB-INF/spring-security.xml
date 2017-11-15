@@ -45,7 +45,9 @@
         <intercept-url pattern="/planet/**" 
                        access="ROLE_ADMIN" />
         <intercept-url pattern="/planets" 
-                       access="ROLE_ADMIN" />
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/planets/recent" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <intercept-url pattern="/planet" 
                        access="ROLE_ADMIN" />
         <intercept-url pattern="/**" 

@@ -1,5 +1,6 @@
 $(document).ready(function () {
     loadPlanets();
+    loadRecentPlanets();
 
     $('#add-planet-button').click(function (event) {
 
@@ -150,6 +151,43 @@ function loadPlanets() {
     });
 }
 
+function loadRecentPlanets() {
+    clearRecentPlanets();
+
+    var recentPlanets = $('#recentPlanets');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8084/PlanetTracker/planets/recent',
+        success: function (data, status) {
+            $.each(data, function (index, planet) {
+                var name = planet.name;
+                var imageURL = planet.imageURL;
+                var id = planet.planetId;
+
+                var planetBox = '<div class="col-md-4">\n\
+                                <div class="thumbnail">\n\
+                                <a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">\n\
+                                <img class="cover" src="' + imageURL + '" id="recentPlanet">\n\
+                                <div class="caption">\n\
+                                <p>' + name + '</p>\n\
+                                </div>\n\
+                                </a>\n\
+                                </div>\n\
+                                </div>';
+
+                recentPlanets.append(planetBox);
+            });
+        },
+        error: function () {
+            $('#errorMessages')
+                    .append($('<li>')
+                            .attr({class: 'list-group-item list-group-item-danger'})
+                            .text('Error calling web service.  Please try again later.'));
+        }
+    });
+}
+
 $('#planetDetailsModal').on('shown.bs.modal', function (event) {
     var element = $(event.relatedTarget);
     var planetId = element.attr("id");
@@ -202,6 +240,10 @@ function loadSearchResults(data) {
 
 function clearPlanetTable() {
     $('#contentRows').empty();
+}
+
+function clearRecentPlanets() {
+    $('#recentPlanets').empty();
 }
 
 function showEditForm(planetId) {

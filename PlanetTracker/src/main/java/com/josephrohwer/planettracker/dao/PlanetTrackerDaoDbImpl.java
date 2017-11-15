@@ -38,6 +38,8 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
             + "planet_type = ?, life_type = ? where planet_id = ?";
     private static final String SQL_SELECT_ALL_PLANETS
             = "select * from planets";
+    private static final String SQL_SELECT_RECENT_PLANETS
+            = "select * from planets order by planet_id desc limit 6;";
     private static final String SQL_SELECT_PLANETS_BY_NAME
             = "select * from planets where name = ?";
     private static final String SQL_SELECT_PLANETS_BY_PLANET_TYPE
@@ -88,6 +90,11 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
         return jdbcTemplate.query(SQL_SELECT_ALL_PLANETS, new PlanetMapper());
     }
 
+    @Override
+    public List<Planet> getRecentPlanets() {
+        return jdbcTemplate.query(SQL_SELECT_RECENT_PLANETS, new PlanetMapper());
+    }
+    
     @Override
     public Planet getPlanetById(long planetId) {
         try {

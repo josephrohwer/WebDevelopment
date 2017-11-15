@@ -67,70 +67,7 @@
                 </div>    
                 </noscript>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg" alt="Image from NASA." id="recentPlanet">
-                            <div class="caption">
-                                <p>Lorem ipsum...</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/286_PIA19833_s.jpg" alt="Image from NASA." id="recentPlanet">
-                            <div class="caption">
-                                <p>Lorem ipsum...</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="#">                         
-                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/198_PIA17999(S).jpg" alt="Image from NASA." id="recentPlanet">
-                            <div class="caption">
-                                <p>Lorem ipsum...</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/219_607694main_Kepler22bArtwork_full(S).jpg" alt="Image from NASA." id="recentPlanet">
-                            <div class="caption">
-                                <p>Lorem ipsum...</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/222_696969main_ExoUpClose-full_full(S).jpg" alt="Image from NASA." id="recentPlanet">
-                            <div class="caption">
-                                <p>Lorem ipsum...</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <a href="#">
-                            <img class="cover" src="https://exoplanets.nasa.gov/system/resources/detail_files/212_Kepler10b.jpg" alt="Image from NASA." id="recentPlanet">
-                            <div class="caption">
-                                <p>Lorem ipsum...</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div id="recentPlanets"></div>
         </div>
         <footer class="container-fluid text-center">
             <div class="col-md-4 col-md-offset-4">
@@ -150,5 +87,7 @@
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <%@include file="/jsp/planetDetailsModal.jsp"%>
+        <script src="${pageContext.request.contextPath}/js/planetTracker.js"></script>
     </body>
 </html>

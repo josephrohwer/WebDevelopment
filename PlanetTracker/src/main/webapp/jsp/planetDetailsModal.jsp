@@ -7,7 +7,7 @@
             <div class="modal-body">
                 <div class="thumbnail" id="detail-image-url"></div>
                 <table id="planetTable" class="table table-hover">
-                    <tbody id="contentRows">
+                    <tbody>
                         <tr>
                             <td width="50%"><b>Average Temp</b></td>
                             <td id="detail-avg-temp"></td>
