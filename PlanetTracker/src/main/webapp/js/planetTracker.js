@@ -161,20 +161,16 @@ function loadRecentPlanets() {
         url: 'http://localhost:8084/PlanetTracker/planets/recent',
         success: function (data, status) {
             $.each(data, function (index, planet) {
-                var name = planet.name;
-                var imageURL = planet.imageURL;
                 var id = planet.planetId;
+                var imageURL = planet.imageURL;
+                var name = planet.name;
+                var planetType = planet.planetType;
 
-                var planetBox = '<div class="col-md-4">\n\
-                                <div class="thumbnail">\n\
-                                <a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">\n\
-                                <img class="cover" src="' + imageURL + '" id="recentPlanet">\n\
-                                <div class="caption">\n\
-                                <p>' + name + '</p>\n\
-                                </div>\n\
-                                </a>\n\
-                                </div>\n\
-                                </div>';
+                var planetBox = '<div class="col-md-4"><div class="thumbnail">';
+                planetBox += '<a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">';
+                planetBox += '<img class="cover" src="' + imageURL + '" id="recentPlanet">';
+                planetBox += '<div class="caption"><p>' + name + ' - ' + planetType + '</p>';
+                planetBox += '</div></a></div></div>';
 
                 recentPlanets.append(planetBox);
             });
