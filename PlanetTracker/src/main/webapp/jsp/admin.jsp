@@ -74,7 +74,9 @@
                             <h2 id="addHeader">Users</h2>  
                         </div>
                         <div class="col-md-4">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal" id ="addButton">Add User</button>  
+                            <sec:authorize access="hasRole('ROLE_ADMIN')"> 
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal" id ="addButton">Add User</button>  
+                            </sec:authorize>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -83,7 +85,9 @@
                                 <th width="90%">Username</th>
                                 <th width="10%"></th>
                             </tr>
-                            <tbody id="contentRows"></tbody>
+                            <sec:authorize access="hasRole('ROLE_ADMIN')"> 
+                                <tbody id="contentRows"></tbody>
+                            </sec:authorize>
                         </table>
                     </div>
                 </div>

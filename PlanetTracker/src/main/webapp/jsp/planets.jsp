@@ -78,7 +78,9 @@
                                 <h2 id="addHeader">Planets</h2>  
                             </div>
                             <div class="col-md-4">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPlanetModal" id ="addButton">Add Planet</button>  
+                                <sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_USER')"> 
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPlanetModal" id ="addButton">Add Planet</button>  
+                                </sec:authorize>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -89,7 +91,9 @@
                                     <th width="10%"></th>
                                     <th width="10%"></th>
                                 </tr>
-                                <tbody id="contentRows"></tbody>
+                                <sec:authorize access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"> 
+                                    <tbody id="contentRows"></tbody>
+                                </sec:authorize> 
                             </table>
                         </div>
                     </div>
@@ -156,7 +160,9 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12" align="right">
-                                    <button type="button" id="edit-button" class="btn btn-primary">Update Planet</button>
+                                    <sec:authorize access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"> 
+                                        <button type="button" id="edit-button" class="btn btn-primary">Update Planet</button>
+                                    </sec:authorize>
                                     <input type="hidden" id="edit-planet-id">
                                     <button type="button" id="edit-cancel-button" class="btn btn-default" onclick="hideEditForm()">Cancel</button>
                                 </div>
@@ -222,7 +228,9 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12" align="right">
-                                <input type="button" class="btn btn-primary" id="search-button" value="Search"/>
+                                <sec:authorize access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"> 
+                                    <input type="button" class="btn btn-primary" id="search-button" value="Search"/>
+                                </sec:authorize>
                             </div>
                         </div>
                     </form>
