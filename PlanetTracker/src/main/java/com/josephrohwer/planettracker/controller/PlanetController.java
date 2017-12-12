@@ -26,12 +26,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @CrossOrigin
 @Controller
-public class RESTController {
+public class PlanetController {
 
     private PlanetTrackerDao dao;
 
     @Inject
-    public RESTController(PlanetTrackerDao dao) {
+    public PlanetController(PlanetTrackerDao dao) {
         this.dao = dao;
     }
 

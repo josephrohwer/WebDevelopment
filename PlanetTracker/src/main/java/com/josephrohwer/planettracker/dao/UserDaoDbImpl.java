@@ -39,7 +39,7 @@ public class UserDaoDbImpl implements UserDao {
     @Override
     public User addUser(User newUser) {
         jdbcTemplate.update(SQL_INSERT_USER, newUser.getUsername(), newUser.getPassword());
-        newUser.setId(jdbcTemplate.queryForObject("select LAST_INSERT_ID()", Integer.class));
+        newUser.setUserId(jdbcTemplate.queryForObject("select LAST_INSERT_ID()", Integer.class));
 
         ArrayList<String> authorities = newUser.getAuthorities();
         for (String authority : authorities) {
@@ -64,7 +64,7 @@ public class UserDaoDbImpl implements UserDao {
 
         public User mapRow(ResultSet rs, int rowNum) throws SQLException {
             User user = new User();
-            user.setId(rs.getInt("user_id"));
+            user.setUserId(rs.getLong("user_id"));
             user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             return user;

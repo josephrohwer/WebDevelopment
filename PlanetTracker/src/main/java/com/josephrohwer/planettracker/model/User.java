@@ -16,7 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class User {
 
-    private int id;
+    private long userId;
     @NotEmpty
     @Length(max = 20)
     private String username;
@@ -26,12 +26,12 @@ public class User {
     @Size(max=2)
     private ArrayList<String> authorities = new ArrayList<>();
 
-    public int getId() {
-        return id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
