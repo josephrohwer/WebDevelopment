@@ -41,7 +41,8 @@ public class PlanetTrackerDaoTest {
     @Before
     public void setUp() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
-        dao = ctx.getBean("planetTrackerDao", PlanetTrackerDao.class);
+        dao = ctx.getBean("planetTrackerDaoDbImpl", PlanetTrackerDao.class);
+        //dao = ctx.getBean("planetTrackerDaoInMemImpl", PlanetTrackerDao.class);
 
         List<Planet> planets = dao.getAllPlanets();
         for (Planet currentPlanet : planets) {
@@ -51,12 +52,16 @@ public class PlanetTrackerDaoTest {
 
     @After
     public void tearDown() {
+        List<Planet> planets = dao.getAllPlanets();
+        for (Planet currentPlanet : planets) {
+            dao.removePlanet(currentPlanet.getPlanetId());
+        }
     }
 
     @Test
     public void addGetDeletePlanet() {
         Planet np = new Planet();
-        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
+        np.setImageURL("");
         np.setName("Earth");
         np.setAvgTemp(72);
         np.setRadLevel(12);
@@ -72,7 +77,7 @@ public class PlanetTrackerDaoTest {
     @Test
     public void addUpdatePlanet() {
         Planet np = new Planet();
-        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
+        np.setImageURL("");
         np.setName("Mars");
         np.setAvgTemp(45);
         np.setRadLevel(54);
@@ -86,9 +91,9 @@ public class PlanetTrackerDaoTest {
     }
 
     @Test
-    public void getAllPlanets() {
+    public void getRecentAllPlanets() {
         Planet np = new Planet();
-        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
+        np.setImageURL("");
         np.setName("Mars");
         np.setAvgTemp(-45);
         np.setRadLevel(54);
@@ -97,30 +102,7 @@ public class PlanetTrackerDaoTest {
         dao.addPlanet(np);
 
         Planet np2 = new Planet();
-        np2.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
-        np2.setName("Earth");
-        np2.setAvgTemp(72);
-        np2.setRadLevel(12);
-        np2.setPlanetType("Habitable");
-        np2.setLifeType("Advanced");
-        dao.addPlanet(np2);
-        List<Planet> pList = dao.getAllPlanets();
-        assertEquals(pList.size(), 2);
-    }
-
-    @Test
-    public void searchPlanets() {
-        Planet np = new Planet();
-        np.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
-        np.setName("Mars");
-        np.setAvgTemp(-45);
-        np.setRadLevel(54);
-        np.setPlanetType("Rocky");
-        np.setLifeType("Microbial");
-        dao.addPlanet(np);
-
-        Planet np2 = new Planet();
-        np2.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
+        np2.setImageURL("");
         np2.setName("Earth");
         np2.setAvgTemp(72);
         np2.setRadLevel(12);
@@ -129,7 +111,79 @@ public class PlanetTrackerDaoTest {
         dao.addPlanet(np2);
 
         Planet np3 = new Planet();
-        np3.setImageURL("https://exoplanets.nasa.gov/system/resources/detail_files/66_ssc2007-02a_Sm.jpg");
+        np3.setImageURL("");
+        np3.setName("Mars");
+        np3.setAvgTemp(-45);
+        np3.setRadLevel(54);
+        np3.setPlanetType("Rocky");
+        np3.setLifeType("Microbial");
+        dao.addPlanet(np3);
+
+        Planet np4 = new Planet();
+        np4.setImageURL("");
+        np4.setName("Earth");
+        np4.setAvgTemp(72);
+        np4.setRadLevel(12);
+        np4.setPlanetType("Habitable");
+        np4.setLifeType("Advanced");
+        dao.addPlanet(np4);
+
+        Planet np5 = new Planet();
+        np5.setImageURL("");
+        np5.setName("Mars");
+        np5.setAvgTemp(-45);
+        np5.setRadLevel(54);
+        np5.setPlanetType("Rocky");
+        np5.setLifeType("Microbial");
+        dao.addPlanet(np5);
+
+        Planet np6 = new Planet();
+        np6.setImageURL("");
+        np6.setName("Earth");
+        np6.setAvgTemp(72);
+        np6.setRadLevel(12);
+        np6.setPlanetType("Habitable");
+        np6.setLifeType("Advanced");
+        dao.addPlanet(np6);
+
+        Planet np7 = new Planet();
+        np7.setImageURL("");
+        np7.setName("Mars");
+        np7.setAvgTemp(-45);
+        np7.setRadLevel(54);
+        np7.setPlanetType("Rocky");
+        np7.setLifeType("Microbial");
+        dao.addPlanet(np7);
+
+        List<Planet> pList = dao.getAllPlanets();
+        assertEquals(pList.size(), 7);
+        
+        List<Planet> rpList = dao.getRecentPlanets(6);
+        assertEquals(rpList.size(), 6);
+    }
+
+    @Test
+    public void searchPlanets() {
+        Planet np = new Planet();
+        np.setImageURL("");
+        np.setName("Mars");
+        np.setAvgTemp(-45);
+        np.setRadLevel(54);
+        np.setPlanetType("Rocky");
+        np.setLifeType("Microbial");
+        dao.addPlanet(np);
+
+        Planet np2 = new Planet();
+        np2.setImageURL("");
+        np2.setName("Earth");
+        np2.setAvgTemp(72);
+        np2.setRadLevel(12);
+        np2.setPlanetType("Habitable");
+        np2.setLifeType("Advanced");
+        dao.addPlanet(np2);
+
+        Planet np3 = new Planet();
+        np3.setImageURL("");
         np3.setName("Jupiter");
         np3.setAvgTemp(-45);
         np3.setRadLevel(267);

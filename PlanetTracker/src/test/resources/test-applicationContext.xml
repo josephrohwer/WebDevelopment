@@ -16,9 +16,17 @@
 
     <!-- Bean definitions go here -->
     <tx:annotation-driven />
-    <bean id="planetTrackerDao" class="com.josephrohwer.planettracker.dao.PlanetTrackerDaoDbImpl">
+    <bean id="planetTrackerDaoDbImpl" class="com.josephrohwer.planettracker.dao.PlanetTrackerDaoDbImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
+    
+    <bean id="userDaoDbImpl" class="com.josephrohwer.planettracker.dao.UserDaoDbImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
+    <bean id="planetTrackerDaoInMemImpl" class="com.josephrohwer.planettracker.dao.PlanetTrackerDaoInMemImpl"></bean>
+    
+    <bean id="userDaoInMemImpl" class="com.josephrohwer.planettracker.dao.UserDaoInMemImpl"></bean>
     
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>

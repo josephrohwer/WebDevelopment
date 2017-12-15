@@ -72,6 +72,7 @@ public class PlanetController {
     @RequestMapping(value = "/planets/recent", method = RequestMethod.GET)
     @ResponseBody
     public List<Planet> getRecentPlanets() {
-        return dao.getRecentPlanets();
+        int recentPlanetLimit = 6;
+        return dao.getRecentPlanets(recentPlanetLimit);
     }
 }

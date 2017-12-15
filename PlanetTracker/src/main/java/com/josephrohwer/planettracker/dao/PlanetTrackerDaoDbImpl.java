@@ -39,7 +39,7 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
     private static final String SQL_SELECT_ALL_PLANETS
             = "select * from planets";
     private static final String SQL_SELECT_RECENT_PLANETS
-            = "select * from planets order by planet_id desc limit 6;";
+            = "select * from planets order by planet_id desc limit ?;";
     private static final String SQL_SELECT_PLANETS_BY_NAME
             = "select * from planets where name = ?";
     private static final String SQL_SELECT_PLANETS_BY_PLANET_TYPE
@@ -91,8 +91,8 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
     }
 
     @Override
-    public List<Planet> getRecentPlanets() {
-        return jdbcTemplate.query(SQL_SELECT_RECENT_PLANETS, new PlanetMapper());
+    public List<Planet> getRecentPlanets(int recentPlanetLimit) {
+        return jdbcTemplate.query(SQL_SELECT_RECENT_PLANETS, new PlanetMapper(), recentPlanetLimit);
     }
     
     @Override

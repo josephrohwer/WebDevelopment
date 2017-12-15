@@ -8,6 +8,7 @@ package com.josephrohwer.planettracker.dao;
 import com.josephrohwer.planettracker.model.Planet;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,9 +49,15 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
     }
 
     @Override
-    public List<Planet> getRecentPlanets() {
-        // TODO: Finish this and add a test case.
-        throw new UnsupportedOperationException("Not supported yet.");
+    public List<Planet> getRecentPlanets(int recentPlanetLimit) {
+        Collection<Planet> c = planetMap.values();
+        List<Planet> planets = new ArrayList(c);
+        
+        if (recentPlanetLimit < planets.size()) {
+            return new ArrayList<>(planets.subList(0, recentPlanetLimit));
+        } else {
+            return planets;
+        }
     }
     
     @Override

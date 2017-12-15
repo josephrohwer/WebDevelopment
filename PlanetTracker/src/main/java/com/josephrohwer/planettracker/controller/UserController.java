@@ -11,7 +11,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,10 +28,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class UserController {
 
     private UserDao dao;
-    private PasswordEncoder encoder;
+    private BCryptPasswordEncoder encoder;
 
     @Inject
-    public UserController(UserDao dao, PasswordEncoder encoder) {
+    public UserController(UserDao dao, BCryptPasswordEncoder encoder) {
         this.dao = dao;
         this.encoder = encoder;
     }
