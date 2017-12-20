@@ -41,8 +41,7 @@ public class UserDaoTest {
     @Before
     public void setUp() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
-        dao = ctx.getBean("userDaoDbImpl", UserDao.class);
-        //dao = ctx.getBean("userDaoInMemImpl", UserDao.class);
+        dao = ctx.getBean("userDao", UserDao.class);
         encoder = new BCryptPasswordEncoder();
         
         List<User> users = dao.getAllUsers();

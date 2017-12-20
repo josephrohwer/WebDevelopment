@@ -18,26 +18,11 @@ CREATE TABLE IF NOT EXISTS `users`(
     KEY `username`(`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 AUTO_INCREMENT = 3;
 
-INSERT
-INTO
-    `users`(
-        `user_id`,
-        `username`,
-        `password`,
-        `enabled`
-    )
-VALUES(1, 'admin', 'password', 1),(2, 'user', 'password', 1);
-
 CREATE TABLE IF NOT EXISTS `authorities`(
     `username` VARCHAR(20) NOT NULL,
     `authority` VARCHAR(20) NOT NULL,
     KEY `username`(`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
-
-INSERT
-INTO
-    `authorities`(`username`, `authority`)
-VALUES('admin', 'ROLE_ADMIN'),('admin', 'ROLE_USER'),('user', 'ROLE_USER');
 
 ALTER TABLE
     `authorities` ADD CONSTRAINT `authorities_ibfk_1` FOREIGN KEY(`username`) REFERENCES `users`(`username`);

@@ -41,8 +41,7 @@ public class PlanetTrackerDaoTest {
     @Before
     public void setUp() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("test-applicationContext.xml");
-        dao = ctx.getBean("planetTrackerDaoDbImpl", PlanetTrackerDao.class);
-        //dao = ctx.getBean("planetTrackerDaoInMemImpl", PlanetTrackerDao.class);
+        dao = ctx.getBean("planetTrackerDao", PlanetTrackerDao.class);
 
         List<Planet> planets = dao.getAllPlanets();
         for (Planet currentPlanet : planets) {
