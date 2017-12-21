@@ -32,28 +32,29 @@
             </div>
             <div class="panel panel-default col-md-4 col-md-offset-4">
                 <div class="panel-body">
-                    <h3>Sign In</h3>
-                    <c:if test="${param.signIn_error == 1}">
-                        <div class="alert alert-danger">
-                            <strong>Incorrect username or password!</strong>
-                        </div>
-                    </c:if>
-                    <form class="form-horizontal" role="form" method="post" action="j_spring_security_check">
+                    <h3>Create Account</h3>
+                    <form class="form-horizontal" role="form" id ="create-account-form">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="j_username" class="control-label">Username</label>
-                                <input type="text" class="form-control" name="j_username" placeholder="Username" maxlength="256" required/>
+                                <label class="control-label">Username</label>
+                                <input type="text" class="form-control" id="create-username" placeholder="Username" maxlength="30" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="j_password" class="control-label">Password</label>
-                                <input type="password" class="form-control" name="j_password" placeholder="Password" maxlength="256" required/>
+                                <label class="control-label">Password</label>
+                                <input type="password" class="form-control" placeholder="At least 6 characters" minlength="6" maxlength="256" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="control-label">Re-enter Password</label>
+                                <input type="password" class="form-control" id="create-password" placeholder="Password" minlength="6" maxlength="256" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12" align="center">
-                                <input type="submit" class="btn btn-primary" id="sign-in-button" value="Sign In"/>
+                                <input type="submit" class="btn btn-primary" id="create-account-button" value="Create Account"/>
                             </div>
                         </div>
                     </form> 
@@ -78,5 +79,6 @@
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/userTracker.js"></script>
     </body>
 </html>

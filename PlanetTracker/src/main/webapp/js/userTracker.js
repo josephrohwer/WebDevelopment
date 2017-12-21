@@ -37,6 +37,41 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#create-user-button').click(function (event) {
+
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#create-user-form').find('input'));
+
+        if (haveValidationErrors) {
+            return false;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8084/PlanetTracker/user',
+            data: JSON.stringify({
+                username: $('#create-username').val(),
+                password: $('#create-password').val()
+            }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            'dataType': 'json',
+            success: function (data, status) {
+                $('#errorMessages').empty();
+                $('#create-username').val('');
+                $('#create-password').val('');
+                loadUsers();
+            },
+            error: function () {
+                $('#errorMessages')
+                        .append($('<li>')
+                                .attr({class: 'list-group-item list-group-item-danger'})
+                                .text('Error calling web service.  Please try again later.'));
+            }
+        });
+    });
 });
 
 function loadUsers() {

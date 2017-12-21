@@ -11,15 +11,15 @@ CREATE TABLE IF NOT EXISTS `planets`(
 
 CREATE TABLE IF NOT EXISTS `users`(
     `user_id` INT(11) NOT NULL AUTO_INCREMENT,
-    `username` VARCHAR(20) NOT NULL,
-    `password` VARCHAR(100) NOT NULL,
+    `username` VARCHAR(30) NOT NULL,
+    `password` VARCHAR(256) NOT NULL,
     `enabled` TINYINT(1) NOT NULL,
     PRIMARY KEY(`user_id`),
     KEY `username`(`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 AUTO_INCREMENT = 3;
 
 CREATE TABLE IF NOT EXISTS `authorities`(
-    `username` VARCHAR(20) NOT NULL,
+    `username` VARCHAR(30) NOT NULL,
     `authority` VARCHAR(20) NOT NULL,
     KEY `username`(`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;

@@ -45,12 +45,18 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public User createUser(@Valid @RequestBody User user) {
+    public User createUser(@Valid @RequestBody User user) throws UpdateIntegrityException {
+        for (User u : dao.getAllUsers()) {
+            if (u.getUsername().equals(user.getUsername())) {
+                throw new UpdateIntegrityException("Planet Id on URL must match Planet Id in submitted data.");
+            }
+        }
+        
         String clearPw = user.getPassword();
         String hashPw = encoder.encode(clearPw);
         user.setPassword(hashPw);
 
-        if (user.getAuthorities().contains("ROLE_ADMIN")) {
+        if (user.getAuthorities().contains("ROLE_ADMIN") || user.getAuthorities().isEmpty()) {
             user.addAuthority("ROLE_USER");
         }
 

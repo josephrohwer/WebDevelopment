@@ -43,7 +43,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <sec:authorize access="isAnonymous()"> 
                             <li>
-                                <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                                <a href="${pageContext.request.contextPath}/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/signIn"><span class="glyphicon glyphicon-log-in"></span> Login</a>
