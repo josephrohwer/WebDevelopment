@@ -3,15 +3,16 @@ $(document).ready(function () {
 
     $('#add-user-button').click(function (event) {
 
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-user-form').find('input'), $('#add-user-form').find('select'));
+        var haveInputValidationErrors = checkAndDisplayValidationErrors($('#add-user-form').find('input'));
+        var haveSelectValidationErrors = checkAndDisplaySelectValidationErrors($('#add-user-form').find('select'));
 
-        if (haveValidationErrors) {
+        if (haveInputValidationErrors || haveSelectValidationErrors) {
             return false;
         }
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8084/PlanetTracker/user',
+            url: 'http://localhost:8084/PlanetTracker/createUser',
             data: JSON.stringify({
                 username: $('#add-username').val(),
                 password: $('#add-password').val(),
@@ -38,11 +39,11 @@ $(document).ready(function () {
         });
     });
 
-    $('#create-user-button').click(function (event) {
+    $('#create-account-button').click(function (event) {
 
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#create-user-form').find('input'));
+        var haveInputValidationErrors = checkAndDisplayInputValidationErrors($('#create-account-form').find('input'));
 
-        if (haveValidationErrors) {
+        if (haveInputValidationErrors) {
             return false;
         }
 
@@ -51,7 +52,8 @@ $(document).ready(function () {
             url: 'http://localhost:8084/PlanetTracker/user',
             data: JSON.stringify({
                 username: $('#create-username').val(),
-                password: $('#create-password').val()
+                password: $('#create-password').val(),
+                authorities: []
             }),
             headers: {
                 'Accept': 'application/json',
@@ -62,7 +64,6 @@ $(document).ready(function () {
                 $('#errorMessages').empty();
                 $('#create-username').val('');
                 $('#create-password').val('');
-                loadUsers();
             },
             error: function () {
                 $('#errorMessages')
@@ -119,7 +120,7 @@ function deleteUser(username) {
     }
 }
 
-function checkAndDisplayValidationErrors(input, select) {
+function checkAndDisplayInputValidationErrors(input) {
     $('#errorMessages').empty();
     var errorMessages = [];
 
@@ -130,6 +131,20 @@ function checkAndDisplayValidationErrors(input, select) {
             errorMessages.push(errorField + ' ' + this.validationMessage);
         }
     });
+
+    if (errorMessages.length > 0) {
+        $.each(errorMessages, function (index, message) {
+            $('#errorMessages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
+        });
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkAndDisplaySelectValidationErrors(select) {
+    $('#errorMessages').empty();
+    var errorMessages = [];
 
     select.each(function () {
         if (!this.validity.valid)

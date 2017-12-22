@@ -42,16 +42,16 @@ public class UserController {
         return dao.getAllUsers();
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public User createUser(@Valid @RequestBody User user) throws UpdateIntegrityException {
+    public User adminCreateUser(@Valid @RequestBody User user) throws UpdateIntegrityException {
         for (User u : dao.getAllUsers()) {
             if (u.getUsername().equals(user.getUsername())) {
-                throw new UpdateIntegrityException("Planet Id on URL must match Planet Id in submitted data.");
+                throw new UpdateIntegrityException("Username already taken.");
             }
         }
-        
+
         String clearPw = user.getPassword();
         String hashPw = encoder.encode(clearPw);
         user.setPassword(hashPw);
@@ -59,6 +59,27 @@ public class UserController {
         if (user.getAuthorities().contains("ROLE_ADMIN") || user.getAuthorities().isEmpty()) {
             user.addAuthority("ROLE_USER");
         }
+
+        return dao.addUser(user);
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public User createUser(@Valid @RequestBody User user) throws UpdateIntegrityException {
+        for (User u : dao.getAllUsers()) {
+            if (u.getUsername().equals(user.getUsername())) {
+                throw new UpdateIntegrityException("Username already taken.");
+            }
+        }
+
+        String clearPw = user.getPassword();
+        String hashPw = encoder.encode(clearPw);
+        user.setPassword(hashPw);
+
+        // Don't want the user trying to manually create an admin account.
+        user.getAuthorities().clear();
+        user.addAuthority("ROLE_USER");
 
         return dao.addUser(user);
     }
