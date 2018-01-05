@@ -52,7 +52,7 @@ $(document).ready(function () {
             url: 'http://localhost:8084/PlanetTracker/user',
             data: JSON.stringify({
                 username: $('#create-username').val(),
-                password: $('#create-password').val(),
+                password: $('#create-password-second').val(),
                 authorities: []
             }),
             headers: {
@@ -63,7 +63,8 @@ $(document).ready(function () {
             success: function (data, status) {
                 $('#errorMessages').empty();
                 $('#create-username').val('');
-                $('#create-password').val('');
+                $('#create-password-first').val('');
+                $('#create-password-second').val('');
             },
             error: function () {
                 $('#errorMessages')

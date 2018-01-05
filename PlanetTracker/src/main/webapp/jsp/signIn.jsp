@@ -29,6 +29,7 @@
                     <h3>This site looks best with JavaScript, please enable it.</h3>
                 </div>    
                 </noscript>
+                <ul class="list-group" id="errorMessages"></ul>
             </div>
             <div class="panel panel-default col-md-4 col-md-offset-4">
                 <div class="panel-body">

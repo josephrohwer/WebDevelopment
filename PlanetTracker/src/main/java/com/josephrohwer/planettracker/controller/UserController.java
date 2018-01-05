@@ -46,10 +46,11 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public User adminCreateUser(@Valid @RequestBody User user) throws UpdateIntegrityException {
-        for (User u : dao.getAllUsers()) {
-            if (u.getUsername().equals(user.getUsername())) {
-                throw new UpdateIntegrityException("Username already taken.");
-            }
+        List<User> users = dao.getAllUsers();
+        String username = user.getUsername();
+        boolean userNameTaken = users.stream().anyMatch(u -> u.getUsername().equalsIgnoreCase(username));
+        if (userNameTaken) {
+            throw new UpdateIntegrityException("Username already taken.");
         }
 
         String clearPw = user.getPassword();
@@ -67,12 +68,13 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public User createUser(@Valid @RequestBody User user) throws UpdateIntegrityException {
-        for (User u : dao.getAllUsers()) {
-            if (u.getUsername().equals(user.getUsername())) {
-                throw new UpdateIntegrityException("Username already taken.");
-            }
+        List<User> users = dao.getAllUsers();
+        String username = user.getUsername();
+        boolean userNameTaken = users.stream().anyMatch(u -> u.getUsername().equalsIgnoreCase(username));
+        if (userNameTaken) {
+            throw new UpdateIntegrityException("Username already taken.");
         }
-
+        
         String clearPw = user.getPassword();
         String hashPw = encoder.encode(clearPw);
         user.setPassword(hashPw);
