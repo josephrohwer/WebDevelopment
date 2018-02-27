@@ -3,10 +3,9 @@ $(document).ready(function () {
 
     $('#add-user-button').click(function (event) {
 
-        var haveInputValidationErrors = checkAndDisplayValidationErrors($('#add-user-form').find('input'));
-        var haveSelectValidationErrors = checkAndDisplaySelectValidationErrors($('#add-user-form').find('select'));
+        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-user-form').find('input'), $('#add-user-form').find('select'));
 
-        if (haveInputValidationErrors || haveSelectValidationErrors) {
+        if (haveValidationErrors) {
             return false;
         }
 
@@ -29,42 +28,6 @@ $(document).ready(function () {
                 $('#add-password').val('');
                 $('#add-authority').val('');
                 loadUsers();
-            },
-            error: function () {
-                $('#errorMessages')
-                        .append($('<li>')
-                                .attr({class: 'list-group-item list-group-item-danger'})
-                                .text('Error calling web service.  Please try again later.'));
-            }
-        });
-    });
-
-    $('#create-account-button').click(function (event) {
-
-        var haveInputValidationErrors = checkAndDisplayInputValidationErrors($('#create-account-form').find('input'));
-
-        if (haveInputValidationErrors) {
-            return false;
-        }
-
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:8084/PlanetTracker/user',
-            data: JSON.stringify({
-                username: $('#create-username').val(),
-                password: $('#create-password-second').val(),
-                authorities: []
-            }),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            'dataType': 'json',
-            success: function (data, status) {
-                $('#errorMessages').empty();
-                $('#create-username').val('');
-                $('#create-password-first').val('');
-                $('#create-password-second').val('');
             },
             error: function () {
                 $('#errorMessages')
@@ -121,7 +84,7 @@ function deleteUser(username) {
     }
 }
 
-function checkAndDisplayInputValidationErrors(input) {
+function checkAndDisplayValidationErrors(input, select) {
     $('#errorMessages').empty();
     var errorMessages = [];
 
@@ -132,20 +95,6 @@ function checkAndDisplayInputValidationErrors(input) {
             errorMessages.push(errorField + ' ' + this.validationMessage);
         }
     });
-
-    if (errorMessages.length > 0) {
-        $.each(errorMessages, function (index, message) {
-            $('#errorMessages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
-        });
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function checkAndDisplaySelectValidationErrors(select) {
-    $('#errorMessages').empty();
-    var errorMessages = [];
 
     select.each(function () {
         if (!this.validity.valid)

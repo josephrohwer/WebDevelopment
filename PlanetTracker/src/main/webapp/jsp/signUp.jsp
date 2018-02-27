@@ -34,23 +34,23 @@
             <div class="panel panel-default col-md-4 col-md-offset-4">
                 <div class="panel-body">
                     <h3>Create Account</h3>
-                    <form class="form-horizontal" role="form" id ="create-account-form">
+                    <form class="form-horizontal" role="form" method="POST" action="userSignUp">
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="control-label">Username</label>
-                                <input type="text" class="form-control" id="create-username" placeholder="Username" maxlength="30" required/>
+                                <input type="text" class="form-control" name="username" placeholder="Username" maxlength="30" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="control-label">Password</label>
-                                <input type="password" class="form-control" id="create-password-first" placeholder="At least 6 characters" minlength="6" maxlength="256" required/>
+                                <input type="password" class="form-control" name="password-first" placeholder="At least 6 characters" minlength="6" maxlength="256" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="control-label">Re-enter Password</label>
-                                <input type="password" class="form-control" id="create-password-second" placeholder="Password" minlength="6" maxlength="256" required/>
+                                <input type="password" class="form-control" name="password-second" placeholder="Password" minlength="6" maxlength="256" required/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -80,6 +80,5 @@
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/userTracker.js"></script>
     </body>
 </html>
