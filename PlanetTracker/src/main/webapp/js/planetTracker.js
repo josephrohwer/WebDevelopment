@@ -54,7 +54,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'PUT',
-            url: 'http://localhost:8084/PlanetTracker/planet/' + $('#edit-planet-id').val(),
+            url: 'http://localhost:8084/PlanetTracker/editPlanet/' + $('#edit-planet-id').val(),
             data: JSON.stringify({
                 planetId: $('#edit-planet-id').val(),
                 imageURL: $('#edit-image-url').val(),
@@ -285,7 +285,7 @@ function deletePlanet(planetId) {
     if (answer === true) {
         $.ajax({
             type: 'DELETE',
-            url: "http://localhost:8084/PlanetTracker/planet/" + planetId,
+            url: "http://localhost:8084/PlanetTracker/deletePlanet/" + planetId,
             success: function (status) {
                 loadPlanets();
             }

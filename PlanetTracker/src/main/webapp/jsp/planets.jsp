@@ -91,9 +91,7 @@
                                     <th width="10%"></th>
                                     <th width="10%"></th>
                                 </tr>
-                                <sec:authorize access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"> 
-                                    <tbody id="contentRows"></tbody>
-                                </sec:authorize> 
+                                <tbody id="contentRows"></tbody>
                             </table>
                         </div>
                     </div>
@@ -160,7 +158,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12" align="right">
-                                    <sec:authorize access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"> 
+                                    <sec:authorize access="hasRole('ROLE_ADMIN')"> 
                                         <button type="button" id="edit-button" class="btn btn-primary">Update Planet</button>
                                     </sec:authorize>
                                     <input type="hidden" id="edit-planet-id">
@@ -228,9 +226,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12" align="right">
-                                <sec:authorize access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"> 
-                                    <input type="button" class="btn btn-primary" id="search-button" value="Search"/>
-                                </sec:authorize>
+                                <input type="button" class="btn btn-primary" id="search-button" value="Search"/>
                             </div>
                         </div>
                     </form>

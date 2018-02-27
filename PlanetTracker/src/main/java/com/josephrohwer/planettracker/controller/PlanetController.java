@@ -48,13 +48,13 @@ public class PlanetController {
         return dao.addPlanet(planet);
     }
 
-    @RequestMapping(value = "/planet/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deletePlanet/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePlanet(@PathVariable("id") long id) {
         dao.removePlanet(id);
     }
 
-    @RequestMapping(value = "/planet/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/editPlanet/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updatePlanet(@PathVariable("id") long id, @Valid @RequestBody Planet planet) throws UpdateIntegrityException {
         if (id != planet.getPlanetId()) {
