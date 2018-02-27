@@ -76,7 +76,7 @@ function deleteUser(username) {
     if (answer === true) {
         $.ajax({
             type: 'DELETE',
-            url: "http://localhost:8084/PlanetTracker/user/" + username,
+            url: "http://localhost:8084/PlanetTracker/user/" + encodeURIComponent(username) + "/",
             success: function (status) {
                 loadUsers();
             }
