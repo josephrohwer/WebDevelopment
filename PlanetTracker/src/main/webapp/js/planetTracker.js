@@ -220,6 +220,7 @@ $('#planetDetailsModal').on('shown.bs.modal', function (event) {
 function loadSearchResults(data) {
     clearPlanetTable();
 
+    var isAdmin = $('#isAdmin').val();
     var contentRows = $('#contentRows');
 
     $.each(data, function (index, planet) {
@@ -230,8 +231,10 @@ function loadSearchResults(data) {
         var row = '<tr>';
         row += '<td><a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">' + name + '</a></td>';
         row += '<td>' + planetType + '</td>';
-        row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
-        row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
+        if (isAdmin === "true") {
+            row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
+            row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
+        }
         row += '</tr>';
         contentRows.append(row);
     });
