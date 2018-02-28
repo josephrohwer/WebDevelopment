@@ -122,6 +122,7 @@ $(document).ready(function () {
 function loadPlanets() {
     clearPlanetTable();
 
+    var isAdmin = $('#isAdmin').val();
     var contentRows = $('#contentRows');
 
     $.ajax({
@@ -136,8 +137,10 @@ function loadPlanets() {
                 var row = '<tr>';
                 row += '<td><a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">' + name + '</a></td>';
                 row += '<td>' + planetType + '</td>';
-                row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
-                row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
+                if (isAdmin === "true") {
+                    row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
+                    row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
+                }
                 row += '</tr>';
                 contentRows.append(row);
             });

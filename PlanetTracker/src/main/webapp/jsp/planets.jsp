@@ -85,12 +85,22 @@
                         </div>
                         <div class="table-responsive">
                             <table id="planetTable" class="table table-hover">
-                                <tr>
-                                    <th width="40%">Name</th>
-                                    <th width="40%">Planet Type</th>
-                                    <th width="10%"></th>
-                                    <th width="10%"></th>
-                                </tr>
+                                <sec:authorize access="hasRole('ROLE_ADMIN')"> 
+                                    <input id="isAdmin" type="text" class="hide" value="true"/>
+                                    <tr>
+                                        <th width="40%">Name</th>
+                                        <th width="40%">Planet Type</th>
+                                        <th width="10%"></th>
+                                        <th width="10%"></th>
+                                    </tr>
+                                </sec:authorize>
+                                <sec:authorize access="!hasRole('ROLE_ADMIN')"> 
+                                    <input id="isAdmin" type="text" class="hide" value="false"/>
+                                    <tr>
+                                        <th width="50%">Name</th>
+                                        <th width="50%">Planet Type</th>
+                                    </tr>
+                                </sec:authorize>
                                 <tbody id="contentRows"></tbody>
                             </table>
                         </div>
