@@ -40,7 +40,7 @@ $(document).ready(function () {
                 $('#errorMessages')
                         .append($('<li>')
                                 .attr({class: 'list-group-item list-group-item-danger'})
-                                .text('Error calling web service.  Please try again later.'));
+                                .text('Error calling web service. Please try again later.'));
             }
         });
     });
@@ -78,7 +78,7 @@ $(document).ready(function () {
                 $('#errorMessages')
                         .append($('<li>')
                                 .attr({class: 'list-group-item list-group-item-danger'})
-                                .text('Error calling web service.  Please try again later.'));
+                                .text('Error calling web service. Please try again later.'));
             }
         });
     });
@@ -113,7 +113,7 @@ $(document).ready(function () {
                 $('#errorMessages')
                         .append($('<li>')
                                 .attr({class: 'list-group-item list-group-item-danger'})
-                                .text('Error calling web service.  Please try again later.'));
+                                .text('Error calling web service. Please try again later.'));
             }
         });
     });
@@ -149,7 +149,7 @@ function loadPlanets() {
             $('#errorMessages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
-                            .text('Error calling web service.  Please try again later.'));
+                            .text('Error calling web service. Please try again later.'));
         }
     });
 }
@@ -182,7 +182,7 @@ function loadRecentPlanets() {
             $('#errorMessages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
-                            .text('Error calling web service.  Please try again later.'));
+                            .text('Error calling web service. Please try again later.'));
         }
     });
 }
@@ -212,7 +212,7 @@ $('#planetDetailsModal').on('shown.bs.modal', function (event) {
             $('#errorMessages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
-                            .text('Error calling web service.  Please try again later.'));
+                            .text('Error calling web service. Please try again later.'));
         }
     });
 });
@@ -267,7 +267,7 @@ function showEditForm(planetId) {
             $('#errorMessages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
-                            .text('Error calling web service.  Please try again later.'));
+                            .text('Error calling web service. Please try again later.'));
         }
     });
     $('#planetTableDiv').hide();
