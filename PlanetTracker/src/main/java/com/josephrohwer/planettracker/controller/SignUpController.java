@@ -40,7 +40,7 @@ public class SignUpController {
     public String userSignUp(HttpServletRequest request) throws UpdateIntegrityException {
         User user = new User();
         user.setUsername(request.getParameter("username"));
-        user.setPassword(request.getParameter("password-second"));
+        user.setPassword(request.getParameter("password-confirm"));
 
         List<User> users = dao.getAllUsers();
         String username = user.getUsername();

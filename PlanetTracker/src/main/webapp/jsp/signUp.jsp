@@ -38,21 +38,30 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="control-label">Username</label>
-                                <input type="text" class="form-control" name="username" placeholder="Username" maxlength="30" required/>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" maxlength="30" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="control-label">Password</label>
-                                <input type="password" class="form-control" name="password-first" placeholder="At least 6 characters" minlength="6" maxlength="256" required/>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="At least 6 characters" minlength="6" maxlength="256" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label class="control-label">Re-enter Password</label>
-                                <input type="password" class="form-control" name="password-second" placeholder="Password" minlength="6" maxlength="256" required/>
+                                <input type="password" class="form-control" name="password-confirm" id="password-confirm" placeholder="Password" minlength="6" maxlength="256" required oninput="checkPasswordMatch(this)"/>
                             </div>
                         </div>
+                        <script language='javascript' type='text/javascript'>
+                            function checkPasswordMatch(input) {
+                                if (input.value != document.getElementById('password').value) {
+                                    input.setCustomValidity('Passwords must match');
+                                } else {
+                                    input.setCustomValidity('');
+                                }
+                            }
+                        </script>
                         <div class="form-group">
                             <div class="col-md-12" align="center">
                                 <input type="submit" class="btn btn-primary" id="create-account-button" value="Create Account"/>
