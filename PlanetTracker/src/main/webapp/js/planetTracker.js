@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $('#add-planet-button').click(function (event) {
 
-        var haveValidationErrors = checkAndDisplayValidationErrors($('#add-planet-form').find('input'), $('#add-planet-form').find('select'));
+        var haveValidationErrors = checkAndDisplayModalValidationErrors($('#add-planet-form').find('input'), $('#add-planet-form').find('select'));
 
         if (haveValidationErrors) {
             return false;
@@ -187,6 +187,10 @@ function loadRecentPlanets() {
     });
 }
 
+$('#addPlanetModal').on('shown.bs.modal', function (event) {
+    $('#modalErrorMessages').empty();
+});
+
 $('#planetDetailsModal').on('shown.bs.modal', function (event) {
     var element = $(event.relatedTarget);
     var planetId = element.attr("id");
@@ -307,7 +311,7 @@ function checkAndDisplayValidationErrors(input, select) {
         if (!this.validity.valid)
         {
             var errorField = $('label[for=' + this.id + ']').text();
-            errorMessages.push(errorField + ' ' + this.validationMessage);
+            errorMessages.push(errorField + ': ' + this.validationMessage);
         }
     });
 
@@ -315,13 +319,43 @@ function checkAndDisplayValidationErrors(input, select) {
         if (!this.validity.valid)
         {
             var errorField = $('label[for=' + this.id + ']').text();
-            errorMessages.push(errorField + ' ' + this.validationMessage);
+            errorMessages.push(errorField + ': ' + this.validationMessage);
         }
     });
 
     if (errorMessages.length > 0) {
         $.each(errorMessages, function (index, message) {
             $('#errorMessages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
+        });
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkAndDisplayModalValidationErrors(input, select) {
+    $('#modalErrorMessages').empty();
+    var modalErrorMessages = [];
+
+    input.each(function () {
+        if (!this.validity.valid)
+        {
+            var errorField = $('label[for=' + this.id + ']').text();
+            modalErrorMessages.push(errorField + ': ' + this.validationMessage);
+        }
+    });
+
+    select.each(function () {
+        if (!this.validity.valid)
+        {
+            var errorField = $('label[for=' + this.id + ']').text();
+            modalErrorMessages.push(errorField + ': ' + this.validationMessage);
+        }
+    });
+
+    if (modalErrorMessages.length > 0) {
+        $.each(modalErrorMessages, function (index, message) {
+            $('#modalErrorMessages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
         });
         return true;
     } else {

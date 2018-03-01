@@ -115,31 +115,31 @@
                         <form class="form-horizontal" role="form" id="edit-form">
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <p>Image URL</p>
+                                    <label for="edit-image-url">Image URL</label>
                                     <input type="url" class="form-control" id="edit-image-url" maxlength="256" placeholder="Image URL" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <p>Name</p>
+                                    <label for="edit-name">Name</label>
                                     <input type="text" class="form-control" id="edit-name" maxlength="50" placeholder="Name" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <p>Average Temp</p>
+                                    <label for="edit-avg-temp">Average Temp</label>
                                     <input type="number" class="form-control" id="edit-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <p>Radiation Level</p>
+                                    <label for="edit-rad-level">Radiation Level</label>
                                     <input type="number" class="form-control" id="edit-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <p>Planet Type</p>
+                                    <label for="edit-planet-type">Planet Type</label>
                                     <select class="form-control" id="edit-planet-type" required>
                                         <option value="" selected disabled hidden>- Select Planet Type -</option>
                                         <option value="Rocky Planet">Rocky Planet</option>
@@ -154,7 +154,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <p>Life Type</p>
+                                    <label for="edit-life-type">Life Type</label>
                                     <select class="form-control" id="edit-life-type" required>
                                         <option value="" selected disabled hidden>- Select Life Type -</option>
                                         <option value="Devoid">Devoid</option>
@@ -187,25 +187,25 @@
                     <form class="form-horizontal" role="form" id="search-form">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <p>Name</p>
+                                <label for="search-name">Name</label>
                                 <input type="text" class="form-control" id="search-name" maxlength="50" placeholder="Name"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <p>Average Temp</p>
+                                <label for="search-avg-temp">Average Temp</label>
                                 <input type="number" class="form-control" id="search-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <p>Radiation Level</p>
+                                <label for="search-rad-level">Radiation Level</label>
                                 <input type="number" class="form-control" id="search-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <p>Planet Type</p>
+                                <label for="search-planet-type">Planet Type</label>
                                 <select class="form-control" id="search-planet-type">
                                     <option value="" selected disabled hidden>- Select Planet Type -</option>
                                     <option value="Rocky Planet">Rocky Planet</option>
@@ -221,7 +221,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <p>Life Type</p>
+                                <label for="search-life-type">Life Type</label>
                                 <select class="form-control" id="search-life-type">
                                     <option value="" selected disabled hidden>- Select Life Type -</option>
                                     <option value="Devoid">Devoid</option>

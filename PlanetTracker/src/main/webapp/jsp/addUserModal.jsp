@@ -6,21 +6,22 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="add-user-form">
+                    <ul class="list-group" id="modalErrorMessages"></ul>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Username</p>
+                            <label for="add-username">Username</label>
                             <input type="text" class="form-control" id="add-username" maxlength="20" placeholder="Username" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Password</p>
+                            <label for="add-password">Password</label>
                             <input type="password" class="form-control" id="add-password" maxlength="256" placeholder="Password" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Authority</p>
+                            <label for="add-authority">Authority</label>
                             <select class="form-control" id="add-authority" required>
                                 <option value="" selected disabled hidden>- Select User Type -</option>
                                 <option value="ROLE_USER">User</option>

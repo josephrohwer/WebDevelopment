@@ -6,33 +6,34 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="add-planet-form">
+                    <ul class="list-group" id="modalErrorMessages"></ul>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Image URL</p>
+                            <label for="add-image-url">Image URL</label>
                             <input type="url" class="form-control" id="add-image-url" maxlength="256" placeholder="Image URL" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Name</p>
+                            <label for="add-name">Name</label>
                             <input type="text" class="form-control" id="add-name" maxlength="50" placeholder="Name" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Average Temp</p>
+                            <label for="add-avg-temp">Average Temp</label>
                             <input type="number" class="form-control" id="add-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Radiation Level</p>
+                            <label for="add-rad-level">Radiation Level</label>
                             <input type="number" class="form-control" id="add-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Planet Type</p>
+                            <label for="add-planet-type">Planet Type</label>
                             <select class="form-control" id="add-planet-type" required>
                                 <option value="" selected disabled hidden>- Select Planet Type -</option>
                                 <option value="Rocky Planet">Rocky Planet</option>
@@ -47,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <p>Life Type</p>
+                            <label for="add-life-type">Life Type</label>
                             <select class="form-control" id="add-life-type" required>
                                 <option value="" selected disabled hidden>- Select Life Type -</option>
                                 <option value="Devoid">Devoid</option>
