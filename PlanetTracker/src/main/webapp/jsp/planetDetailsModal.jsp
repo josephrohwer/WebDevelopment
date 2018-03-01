@@ -1,4 +1,4 @@
-<div id="planetDetailsModal" class="modal fade" role="dialog">
+<div id="planet-details-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,7 +6,7 @@
             </div>
             <div class="modal-body">
                 <div class="thumbnail" id="detail-image-url"></div>
-                <table id="planetTable" class="table table-hover">
+                <table id="planet-table" class="table table-hover">
                     <tbody>
                         <tr>
                             <td width="50%"><b>Average Temp</b></td>

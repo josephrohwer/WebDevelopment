@@ -1,4 +1,4 @@
-<div id="addPlanetModal" class="modal fade" role="dialog">
+<div id="add-planet-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,7 +6,7 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="add-planet-form">
-                    <ul class="list-group" id="modalErrorMessages"></ul>
+                    <ul class="list-group" id="modal-error-messages"></ul>
                     <div class="form-group">
                         <div class="col-md-12">
                             <label for="add-image-url">Image URL</label>

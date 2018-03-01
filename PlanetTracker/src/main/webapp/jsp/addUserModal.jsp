@@ -1,4 +1,4 @@
-<div id="addUserModal" class="modal fade" role="dialog">
+<div id="add-user-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,17 +6,17 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" id="add-user-form">
-                    <ul class="list-group" id="modalErrorMessages"></ul>
+                    <ul class="list-group" id="modal-error-messages"></ul>
                     <div class="form-group">
                         <div class="col-md-12">
                             <label for="add-username">Username</label>
-                            <input type="text" class="form-control" id="add-username" maxlength="20" placeholder="Username" required/>
+                            <input type="text" class="form-control" id="add-username" maxlength="30" placeholder="Username" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
                             <label for="add-password">Password</label>
-                            <input type="password" class="form-control" id="add-password" maxlength="256" placeholder="Password" required/>
+                            <input type="password" class="form-control" id="add-password" minlength="6" maxlength="256" placeholder="Password" required/>
                         </div>
                     </div>
                     <div class="form-group">

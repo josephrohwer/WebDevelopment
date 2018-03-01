@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SignUpController {
 
-    private UserDao dao;
-    private BCryptPasswordEncoder encoder;
+    private final UserDao dao;
+    private final BCryptPasswordEncoder encoder;
 
     @Inject
     public SignUpController(UserDao dao, BCryptPasswordEncoder encoder) {
@@ -53,7 +53,6 @@ public class SignUpController {
         String hashPw = encoder.encode(clearPw);
         user.setPassword(hashPw);
 
-        // Don't want the user trying to manually create an admin account.
         user.getAuthorities().clear();
         user.addAuthority("ROLE_USER");
 

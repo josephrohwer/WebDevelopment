@@ -8,7 +8,6 @@ package com.josephrohwer.planettracker.dao;
 import com.josephrohwer.planettracker.model.Planet;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,7 @@ import java.util.stream.Collectors;
  */
 public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
 
-    private Map<Long, Planet> planetMap = new HashMap<>();
+    private final Map<Long, Planet> planetMap = new HashMap<>();
     private static long planetIdCounter = 0;
 
     @Override
@@ -52,14 +51,14 @@ public class PlanetTrackerDaoInMemImpl implements PlanetTrackerDao {
     public List<Planet> getRecentPlanets(int recentPlanetLimit) {
         Collection<Planet> c = planetMap.values();
         List<Planet> planets = new ArrayList(c);
-        
+
         if (recentPlanetLimit < planets.size()) {
             return new ArrayList<>(planets.subList(0, recentPlanetLimit));
         } else {
             return planets;
         }
     }
-    
+
     @Override
     public Planet getPlanetById(long planetId) {
         return planetMap.get(planetId);

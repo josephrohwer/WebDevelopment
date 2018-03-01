@@ -23,14 +23,14 @@ $(document).ready(function () {
             },
             'dataType': 'json',
             success: function (data, status) {
-                $('#errorMessages').empty();
+                $('#error-messages').empty();
                 $('#add-username').val('');
                 $('#add-password').val('');
                 $('#add-authority').val('');
                 loadUsers();
             },
             error: function () {
-                $('#errorMessages')
+                $('#error-messages')
                         .append($('<li>')
                                 .attr({class: 'list-group-item list-group-item-danger'})
                                 .text('Error calling web service. Please try again later.'));
@@ -42,7 +42,7 @@ $(document).ready(function () {
 function loadUsers() {
     clearUserTable();
 
-    var contentRows = $('#contentRows');
+    var contentRows = $('#content-rows');
 
     $.ajax({
         type: 'GET',
@@ -59,7 +59,7 @@ function loadUsers() {
             });
         },
         error: function () {
-            $('#errorMessages')
+            $('#error-messages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
                             .text('Error calling web service. Please try again later.'));
@@ -67,13 +67,13 @@ function loadUsers() {
     });
 }
 
-$('#addUserModal').on('shown.bs.modal', function (event) {
-    $('#modalErrorMessages').empty();
-});
-
 function clearUserTable() {
-    $('#contentRows').empty();
+    $('#content-rows').empty();
 }
+
+$('#add-user-modal').on('shown.bs.modal', function (event) {
+    $('#modal-error-messages').empty();
+});
 
 function deleteUser(username) {
     var answer = confirm("Do you really want to delete this user?");
@@ -89,7 +89,7 @@ function deleteUser(username) {
 }
 
 function checkAndDisplayModalValidationErrors(input, select) {
-    $('#modalErrorMessages').empty();
+    $('#modal-error-messages').empty();
     var modalErrorMessages = [];
 
     input.each(function () {
@@ -110,7 +110,7 @@ function checkAndDisplayModalValidationErrors(input, select) {
 
     if (modalErrorMessages.length > 0) {
         $.each(modalErrorMessages, function (index, message) {
-            $('#modalErrorMessages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
+            $('#modal-error-messages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
         });
         return true;
     } else {

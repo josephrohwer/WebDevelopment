@@ -46,9 +46,9 @@
                        access="permitAll" />
         <intercept-url pattern="/planet/**" 
                        access="permitAll" />
-        <intercept-url pattern="/planets/recent" 
+        <intercept-url pattern="/planetsRecent" 
                        access="permitAll" />
-        <intercept-url pattern="/search/planets" 
+        <intercept-url pattern="/searchPlanets" 
                        access="permitAll" />
     </http>
     <authentication-manager>

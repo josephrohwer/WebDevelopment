@@ -4,29 +4,30 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Planet Tracker</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     </head>
     <body>
-        <div class="container-fluid" id="navHeader"></div>
-        <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="200" id="mainNavbar">
+        <div class="container-fluid" id="nav-header"></div>
+        <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="200" id="main-navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#subNavbar">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sub-navbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span> 
                     </button>
                     <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">Planet Tracker</a>
                 </div>
-                <div class="collapse navbar-collapse" id="subNavbar">
+                <div class="collapse navbar-collapse" id="sub-navbar">
                     <ul class="nav navbar-nav">
                         <li class="active">                        
                             <a href="${pageContext.request.contextPath}/jsp/planets.jsp">Planets</a>
@@ -60,33 +61,25 @@
         </nav>
         <div class="container-fluid">
             <div class="col-md-8 col-md-offset-2">
-                <noscript>
-                <div class="error message">
-                    <h3>This site looks best with JavaScript, please enable it.</h3>
-                </div>    
-                </noscript>
-                <ul class="list-group" id="errorMessages"></ul>
+                <%@include file="errorMessageFragment.jsp"%>
             </div>
             <div class="row">
                 <div class="col-md-4 col-md-offset-2">
-
-                    <!-- PLANET TABLE PLANET TABLE PLANET TABLE PLANET TABLE -->               
-
-                    <div id="planetTableDiv">
+                    <div id="planet-table-div">
                         <div class="row">
                             <div class="col-md-8">
-                                <h2 id="addHeader">Planets</h2>  
+                                <h2 id="add-header">Planets</h2>  
                             </div>
                             <div class="col-md-4">
                                 <sec:authorize access="hasAnyRole('ROLE_ADMIN, ROLE_USER')"> 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPlanetModal" id ="addButton">Add Planet</button>  
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-planet-modal" id="add-button">Add Planet</button>  
                                 </sec:authorize>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table id="planetTable" class="table table-hover">
+                            <table id="planet-table" class="table table-hover">
                                 <sec:authorize access="hasRole('ROLE_ADMIN')"> 
-                                    <input id="isAdmin" type="text" class="hide" value="true"/>
+                                    <input id="is-admin" type="text" class="hide" value="true"/>
                                     <tr>
                                         <th width="40%">Name</th>
                                         <th width="40%">Planet Type</th>
@@ -95,172 +88,29 @@
                                     </tr>
                                 </sec:authorize>
                                 <sec:authorize access="!hasRole('ROLE_ADMIN')"> 
-                                    <input id="isAdmin" type="text" class="hide" value="false"/>
+                                    <input id="is-admin" type="text" class="hide" value="false"/>
                                     <tr>
                                         <th width="50%">Name</th>
                                         <th width="50%">Planet Type</th>
                                     </tr>
                                 </sec:authorize>
-                                <tbody id="contentRows"></tbody>
+                                <tbody id="content-rows"></tbody>
                             </table>
                         </div>
                     </div>
-
-                    <!-- PLANET TABLE PLANET TABLE PLANET TABLE PLANET TABLE -->               
-
-                    <!-- EDITING PLANET EDITING PLANET EDITING PLANET EDITING PLANET -->               
-
-                    <div id="editFormDiv" style="display: none">
+                    <div id="edit-form-div" style="display: none">
                         <h2>Edit Planet</h2>
-                        <form class="form-horizontal" role="form" id="edit-form">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <label for="edit-image-url">Image URL</label>
-                                    <input type="url" class="form-control" id="edit-image-url" maxlength="256" placeholder="Image URL" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <label for="edit-name">Name</label>
-                                    <input type="text" class="form-control" id="edit-name" maxlength="50" placeholder="Name" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <label for="edit-avg-temp">Average Temp</label>
-                                    <input type="number" class="form-control" id="edit-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <label for="edit-rad-level">Radiation Level</label>
-                                    <input type="number" class="form-control" id="edit-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <label for="edit-planet-type">Planet Type</label>
-                                    <select class="form-control" id="edit-planet-type" required>
-                                        <option value="" selected disabled hidden>- Select Planet Type -</option>
-                                        <option value="Rocky Planet">Rocky Planet</option>
-                                        <option value="Gas Planet">Gas Planet</option>
-                                        <option value="Ice Planet">Ice Planet</option>
-                                        <option value="Iron Planet">Iron Planet</option>
-                                        <option value="Lava Planet">Lava Planet</option>
-                                        <option value="Ocean Planet">Ocean Planet</option>
-                                        <option value="Terrestrial Planet">Terrestrial Planet</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <label for="edit-life-type">Life Type</label>
-                                    <select class="form-control" id="edit-life-type" required>
-                                        <option value="" selected disabled hidden>- Select Life Type -</option>
-                                        <option value="Devoid">Devoid</option>
-                                        <option value="Microbial">Microbial</option>
-                                        <option value="Primitive">Primitive</option>
-                                        <option value="Advanced">Advanced</option>
-                                        <option value="Intelligent">Intelligent</option>
-                                        <option value="Hyper-Intelligent">Hyper-Intelligent</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12" align="right">
-                                    <sec:authorize access="hasRole('ROLE_ADMIN')"> 
-                                        <button type="button" id="edit-button" class="btn btn-primary">Update Planet</button>
-                                    </sec:authorize>
-                                    <input type="hidden" id="edit-planet-id">
-                                    <button type="button" id="edit-cancel-button" class="btn btn-default" onclick="hideEditForm()">Cancel</button>
-                                </div>
-                            </div>
-                        </form>
+                        <%@include file="editFormFragment.jsp"%>
                     </div>
                 </div>
-
-                <!-- EDITING PLANET EDITING PLANET EDITING PLANET EDITING PLANET -->
-                <!-- SEARCHING PLANET SEARCHING PLANET SEARCHING PLANET SEARCHING PLANET -->
-
                 <div class="col-md-4">
                     <h2>Search</h2>
-                    <form class="form-horizontal" role="form" id="search-form">
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label for="search-name">Name</label>
-                                <input type="text" class="form-control" id="search-name" maxlength="50" placeholder="Name"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label for="search-avg-temp">Average Temp</label>
-                                <input type="number" class="form-control" id="search-avg-temp" min="-459" max="10000" placeholder="Average Temp (F)"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label for="search-rad-level">Radiation Level</label>
-                                <input type="number" class="form-control" id="search-rad-level" min="0" max="10000" placeholder="Radiation Level (Sv)"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label for="search-planet-type">Planet Type</label>
-                                <select class="form-control" id="search-planet-type">
-                                    <option value="" selected disabled hidden>- Select Planet Type -</option>
-                                    <option value="Rocky Planet">Rocky Planet</option>
-                                    <option value="Gas Planet">Gas Planet</option>
-                                    <option value="Ice Planet">Ice Planet</option>
-                                    <option value="Iron Planet">Iron Planet</option>
-                                    <option value="Lava Planet">Lava Planet</option>
-                                    <option value="Ocean Planet">Ocean Planet</option>
-                                    <option value="Terrestrial Planet">Terrestrial Planet</option>
-                                    <option value="">All</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label for="search-life-type">Life Type</label>
-                                <select class="form-control" id="search-life-type">
-                                    <option value="" selected disabled hidden>- Select Life Type -</option>
-                                    <option value="Devoid">Devoid</option>
-                                    <option value="Microbial">Microbial</option>
-                                    <option value="Primitive">Primitive</option>
-                                    <option value="Advanced">Advanced</option>
-                                    <option value="Intelligent">Intelligent</option>
-                                    <option value="Hyper-Intelligent">Hyper-Intelligent</option>
-                                    <option value="">All</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12" align="right">
-                                <input type="button" class="btn btn-primary" id="search-button" value="Search"/>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- SEARCHING PLANET SEARCHING PLANET SEARCHING PLANET SEARCHING PLANET -->
-
-            </div> <!-- END OF ROW -->
-        </div> <!-- END OF CONTAINER -->
-        <footer class="container-fluid text-center">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="col-md-3 col-xs-6">
-                    <a href="http://josephrohwer.com/" target="_blank"><i class="fa fa-home" aria-hidden="true"><p>Joseph</p></i></a>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <a href="https://github.com/josephrohwer" target="_blank"><i class="fa fa-github" aria-hidden="true"><p>GitHub</p></i></a>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <a href="https://twitter.com/josephrohwer" target="_blank"><i class="fa fa-twitter" aria-hidden="true"><p>Twitter</p></i></a>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <a href="https://www.linkedin.com/in/joseph-rohwer/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"><p>LinkedIn</p></i></a>
+                    <%@include file="searchFormFragment.jsp"%>
                 </div>
             </div>
+        </div>
+        <footer class="container-fluid text-center">
+            <%@include file="footerFragment.jsp"%>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

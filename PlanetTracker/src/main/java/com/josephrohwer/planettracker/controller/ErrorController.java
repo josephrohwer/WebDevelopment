@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class ErrorController {
-    // map this end point to /error to match the configuration in web.xml
 
     @RequestMapping(value = "/error")
     public String customError(HttpServletRequest request, HttpServletResponse response, Model model) {

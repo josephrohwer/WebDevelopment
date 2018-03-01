@@ -94,7 +94,7 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
     public List<Planet> getRecentPlanets(int recentPlanetLimit) {
         return jdbcTemplate.query(SQL_SELECT_RECENT_PLANETS, new PlanetMapper(), recentPlanetLimit);
     }
-    
+
     @Override
     public Planet getPlanetById(long planetId) {
         try {
@@ -120,7 +120,7 @@ public class PlanetTrackerDaoDbImpl implements PlanetTrackerDao {
 
             while (iter.hasNext()) {
                 SearchTerm currentKey = iter.next();
-                
+
                 if (paramPosition > 0) {
                     sQuery.append(" and ");
                 }

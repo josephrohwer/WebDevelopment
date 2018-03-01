@@ -25,14 +25,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SearchController {
 
-    private PlanetTrackerDao dao;
+    private final PlanetTrackerDao dao;
 
     @Inject
     public SearchController(PlanetTrackerDao dao) {
         this.dao = dao;
     }
 
-    @RequestMapping(value = "/search/planets", method = RequestMethod.POST)
+    @RequestMapping(value = "/searchPlanets", method = RequestMethod.POST)
     @ResponseBody
     public List<Planet> searchPlanets(@RequestBody Map<String, String> searchMap) {
         Map<SearchTerm, String> criteriaMap = new HashMap<>();

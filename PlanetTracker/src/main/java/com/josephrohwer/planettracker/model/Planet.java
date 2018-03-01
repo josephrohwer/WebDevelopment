@@ -51,11 +51,11 @@ public class Planet {
     public String getImageURL() {
         return imageURL;
     }
-    
+
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -95,11 +95,12 @@ public class Planet {
     public void setLifeType(String lifeType) {
         this.lifeType = lifeType;
     }
-// TODO: Figure this out with imageURL.
+
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 97 * hash + (int) (this.planetId ^ (this.planetId >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.imageURL);
         hash = 97 * hash + Objects.hashCode(this.name);
         hash = 97 * hash + Objects.hashCode(this.avgTemp);
         hash = 97 * hash + Objects.hashCode(this.radLevel);
@@ -107,7 +108,7 @@ public class Planet {
         hash = 97 * hash + Objects.hashCode(this.lifeType);
         return hash;
     }
-// TODO: Figure this out with imageURL.
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -121,6 +122,9 @@ public class Planet {
         }
         final Planet other = (Planet) obj;
         if (this.planetId != other.planetId) {
+            return false;
+        }
+        if (!Objects.equals(this.imageURL, other.imageURL)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {

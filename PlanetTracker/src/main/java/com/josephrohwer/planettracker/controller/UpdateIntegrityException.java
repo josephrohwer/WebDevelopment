@@ -10,6 +10,7 @@ package com.josephrohwer.planettracker.controller;
  * @author joseph.rohwer
  */
 public class UpdateIntegrityException extends Exception {
+
     public UpdateIntegrityException(String message) {
         super(message);
     }

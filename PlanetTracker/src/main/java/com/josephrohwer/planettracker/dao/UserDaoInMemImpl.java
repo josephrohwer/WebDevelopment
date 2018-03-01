@@ -5,7 +5,6 @@
  */
 package com.josephrohwer.planettracker.dao;
 
-import com.josephrohwer.planettracker.model.Planet;
 import com.josephrohwer.planettracker.model.User;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +18,7 @@ import java.util.Map;
  */
 public class UserDaoInMemImpl implements UserDao {
 
-    private Map<Long, User> userMap = new HashMap<>();
+    private final Map<Long, User> userMap = new HashMap<>();
     private static long userIdCounter = 0;
 
     @Override

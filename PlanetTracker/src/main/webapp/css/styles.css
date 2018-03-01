@@ -2,13 +2,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-#navHeader {
+#nav-header {
     background-image: url("../img/space.jpg");
     height: 200px;
     background-size: cover;
 }
 
-#mainNavbar {
+#main-navbar {
     border-radius: 0;
 }
 
@@ -23,7 +23,7 @@
     padding-top: 70px;
 }
 
-#recentPlanet, #detail-image {
+#recent-planet, #detail-image {
     width: 600px;
     height: 400px;
 }
@@ -32,11 +32,11 @@
     object-fit: cover;
 }
 
-#addHeader {
+#add-header {
     float: left;
 }
 
-#addButton {
+#add-button {
     float: right;
     margin-top: 25px;
     margin-left: 20px

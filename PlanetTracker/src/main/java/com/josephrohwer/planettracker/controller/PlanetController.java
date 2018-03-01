@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class PlanetController {
 
-    private PlanetTrackerDao dao;
+    private final PlanetTrackerDao dao;
 
     @Inject
     public PlanetController(PlanetTrackerDao dao) {
@@ -69,7 +69,7 @@ public class PlanetController {
         return dao.getAllPlanets();
     }
 
-    @RequestMapping(value = "/planets/recent", method = RequestMethod.GET)
+    @RequestMapping(value = "/planetsRecent", method = RequestMethod.GET)
     @ResponseBody
     public List<Planet> getRecentPlanets() {
         int recentPlanetLimit = 6;

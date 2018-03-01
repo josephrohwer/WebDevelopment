@@ -14,6 +14,7 @@ import java.util.Map;
  * @author joseph.rohwer
  */
 public interface PlanetTrackerDao {
+
     // add the given Planet to the data store
     public Planet addPlanet(Planet planet);
 
@@ -28,7 +29,7 @@ public interface PlanetTrackerDao {
 
     // retrieve the six most recently added Planets from the data store
     public List<Planet> getRecentPlanets(int recentPlanetLimit);
-    
+
     // retrieve the Planet with the given id from the data store
     public Planet getPlanetById(long planetId);
 

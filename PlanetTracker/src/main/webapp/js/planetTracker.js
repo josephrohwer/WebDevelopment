@@ -1,6 +1,5 @@
 $(document).ready(function () {
     loadPlanets();
-    loadRecentPlanets();
 
     $('#add-planet-button').click(function (event) {
 
@@ -27,7 +26,7 @@ $(document).ready(function () {
             },
             'dataType': 'json',
             success: function (data, status) {
-                $('#errorMessages').empty();
+                $('#error-messages').empty();
                 $('#add-image-url').val('');
                 $('#add-name').val('');
                 $('#add-avg-temp').val('');
@@ -37,7 +36,7 @@ $(document).ready(function () {
                 loadPlanets();
             },
             error: function () {
-                $('#errorMessages')
+                $('#error-messages')
                         .append($('<li>')
                                 .attr({class: 'list-group-item list-group-item-danger'})
                                 .text('Error calling web service. Please try again later.'));
@@ -45,7 +44,7 @@ $(document).ready(function () {
         });
     });
 
-    $('#edit-button').click(function (event) {
+    $('#edit-planet-button').click(function (event) {
         var haveValidationErrors = checkAndDisplayValidationErrors($('#edit-form').find('input'), $('#edit-form').find('select'));
 
         if (haveValidationErrors) {
@@ -70,12 +69,12 @@ $(document).ready(function () {
             },
             'dataType': 'json',
             success: function () {
-                $('#errorMessages').empty();
+                $('#error-messages').empty();
                 hideEditForm();
                 loadPlanets();
             },
             error: function () {
-                $('#errorMessages')
+                $('#error-messages')
                         .append($('<li>')
                                 .attr({class: 'list-group-item list-group-item-danger'})
                                 .text('Error calling web service. Please try again later.'));
@@ -92,7 +91,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:8084/PlanetTracker/search/planets',
+            url: 'http://localhost:8084/PlanetTracker/searchPlanets',
             data: JSON.stringify({
                 name: $('#search-name').val(),
                 avgTemp: $('#search-avg-temp').val(),
@@ -106,11 +105,11 @@ $(document).ready(function () {
             },
             'dataType': 'json',
             success: function (data) {
-                $('#errorMessages').empty();
+                $('#error-messages').empty();
                 loadSearchResults(data);
             },
             error: function () {
-                $('#errorMessages')
+                $('#error-messages')
                         .append($('<li>')
                                 .attr({class: 'list-group-item list-group-item-danger'})
                                 .text('Error calling web service. Please try again later.'));
@@ -122,8 +121,8 @@ $(document).ready(function () {
 function loadPlanets() {
     clearPlanetTable();
 
-    var isAdmin = $('#isAdmin').val();
-    var contentRows = $('#contentRows');
+    var isAdmin = $('#is-admin').val();
+    var contentRows = $('#content-rows');
 
     $.ajax({
         type: 'GET',
@@ -135,7 +134,7 @@ function loadPlanets() {
                 var id = planet.planetId;
 
                 var row = '<tr>';
-                row += '<td><a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">' + name + '</a></td>';
+                row += '<td><a data-toggle="modal" href="#planet-details-modal" id="' + id + '">' + name + '</a></td>';
                 row += '<td>' + planetType + '</td>';
                 if (isAdmin === "true") {
                     row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
@@ -146,7 +145,7 @@ function loadPlanets() {
             });
         },
         error: function () {
-            $('#errorMessages')
+            $('#error-messages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
                             .text('Error calling web service. Please try again later.'));
@@ -154,44 +153,38 @@ function loadPlanets() {
     });
 }
 
-function loadRecentPlanets() {
-    clearRecentPlanets();
+function loadSearchResults(data) {
+    clearPlanetTable();
 
-    var recentPlanets = $('#recentPlanets');
+    var isAdmin = $('#is-admin').val();
+    var contentRows = $('#content-rows');
 
-    $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8084/PlanetTracker/planets/recent',
-        success: function (data, status) {
-            $.each(data, function (index, planet) {
-                var id = planet.planetId;
-                var imageURL = planet.imageURL;
-                var name = planet.name;
-                var planetType = planet.planetType;
+    $.each(data, function (index, planet) {
+        var name = planet.name;
+        var planetType = planet.planetType;
+        var id = planet.planetId;
 
-                var planetBox = '<div class="col-md-4"><div class="thumbnail">';
-                planetBox += '<a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">';
-                planetBox += '<img class="cover" src="' + imageURL + '" id="recentPlanet">';
-                planetBox += '<div class="caption"><p>' + name + ' - ' + planetType + '</p>';
-                planetBox += '</div></a></div></div>';
-
-                recentPlanets.append(planetBox);
-            });
-        },
-        error: function () {
-            $('#errorMessages')
-                    .append($('<li>')
-                            .attr({class: 'list-group-item list-group-item-danger'})
-                            .text('Error calling web service. Please try again later.'));
+        var row = '<tr>';
+        row += '<td><a data-toggle="modal" href="#planet-details-modal" id="' + id + '">' + name + '</a></td>';
+        row += '<td>' + planetType + '</td>';
+        if (isAdmin === "true") {
+            row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
+            row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
         }
+        row += '</tr>';
+        contentRows.append(row);
     });
 }
 
-$('#addPlanetModal').on('shown.bs.modal', function (event) {
-    $('#modalErrorMessages').empty();
+function clearPlanetTable() {
+    $('#content-rows').empty();
+}
+
+$('#add-planet-modal').on('shown.bs.modal', function (event) {
+    $('#modal-error-messages').empty();
 });
 
-$('#planetDetailsModal').on('shown.bs.modal', function (event) {
+$('#planet-details-modal').on('shown.bs.modal', function (event) {
     var element = $(event.relatedTarget);
     var planetId = element.attr("id");
     var imageURLDetails = document.getElementById('detail-image-url');
@@ -213,7 +206,7 @@ $('#planetDetailsModal').on('shown.bs.modal', function (event) {
             lifeTypeDetails.innerHTML = data.lifeType;
         },
         error: function () {
-            $('#errorMessages')
+            $('#error-messages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
                             .text('Error calling web service. Please try again later.'));
@@ -221,39 +214,8 @@ $('#planetDetailsModal').on('shown.bs.modal', function (event) {
     });
 });
 
-function loadSearchResults(data) {
-    clearPlanetTable();
-
-    var isAdmin = $('#isAdmin').val();
-    var contentRows = $('#contentRows');
-
-    $.each(data, function (index, planet) {
-        var name = planet.name;
-        var planetType = planet.planetType;
-        var id = planet.planetId;
-
-        var row = '<tr>';
-        row += '<td><a data-toggle="modal" href="#planetDetailsModal" id="' + id + '">' + name + '</a></td>';
-        row += '<td>' + planetType + '</td>';
-        if (isAdmin === "true") {
-            row += '<td><a onclick="showEditForm(' + id + ')"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
-            row += '<td><a onclick="deletePlanet(' + id + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>';
-        }
-        row += '</tr>';
-        contentRows.append(row);
-    });
-}
-
-function clearPlanetTable() {
-    $('#contentRows').empty();
-}
-
-function clearRecentPlanets() {
-    $('#recentPlanets').empty();
-}
-
 function showEditForm(planetId) {
-    $('#errorMessages').empty();
+    $('#error-messages').empty();
 
     $.ajax({
         type: 'GET',
@@ -268,26 +230,26 @@ function showEditForm(planetId) {
             $('#edit-planet-id').val(data.planetId);
         },
         error: function () {
-            $('#errorMessages')
+            $('#error-messages')
                     .append($('<li>')
                             .attr({class: 'list-group-item list-group-item-danger'})
                             .text('Error calling web service. Please try again later.'));
         }
     });
-    $('#planetTableDiv').hide();
-    $('#editFormDiv').show();
+    $('#planet-table-div').hide();
+    $('#edit-form-div').show();
 }
 
 function hideEditForm() {
-    $('#errorMessages').empty();
+    $('#error-messages').empty();
     $('#edit-image-url').val('');
     $('#edit-name').val('');
     $('#edit-avg-temp').val('');
     $('#edit-rad-level').val('');
     $('#edit-life-type').val('');
     $('#edit-planet-type').val('');
-    $('#editFormDiv').hide();
-    $('#planetTableDiv').show();
+    $('#edit-form-div').hide();
+    $('#planet-table-div').show();
 }
 
 function deletePlanet(planetId) {
@@ -304,7 +266,7 @@ function deletePlanet(planetId) {
 }
 
 function checkAndDisplayValidationErrors(input, select) {
-    $('#errorMessages').empty();
+    $('#error-messages').empty();
     var errorMessages = [];
 
     input.each(function () {
@@ -325,7 +287,7 @@ function checkAndDisplayValidationErrors(input, select) {
 
     if (errorMessages.length > 0) {
         $.each(errorMessages, function (index, message) {
-            $('#errorMessages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
+            $('#error-messages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
         });
         return true;
     } else {
@@ -334,7 +296,7 @@ function checkAndDisplayValidationErrors(input, select) {
 }
 
 function checkAndDisplayModalValidationErrors(input, select) {
-    $('#modalErrorMessages').empty();
+    $('#modal-error-messages').empty();
     var modalErrorMessages = [];
 
     input.each(function () {
@@ -355,7 +317,7 @@ function checkAndDisplayModalValidationErrors(input, select) {
 
     if (modalErrorMessages.length > 0) {
         $.each(modalErrorMessages, function (index, message) {
-            $('#modalErrorMessages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
+            $('#modal-error-messages').append($('<li>').attr({class: 'list-group-item list-group-item-danger'}).text(message));
         });
         return true;
     } else {

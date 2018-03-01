@@ -156,7 +156,7 @@ public class PlanetTrackerDaoTest {
 
         List<Planet> pList = dao.getAllPlanets();
         assertEquals(pList.size(), 7);
-        
+
         List<Planet> rpList = dao.getRecentPlanets(6);
         assertEquals(rpList.size(), 6);
     }

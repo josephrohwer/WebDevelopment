@@ -9,7 +9,6 @@ import com.josephrohwer.planettracker.dao.UserDao;
 import com.josephrohwer.planettracker.model.User;
 import java.util.List;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,8 +27,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class AdminUserController {
 
-    private UserDao dao;
-    private BCryptPasswordEncoder encoder;
+    private final UserDao dao;
+    private final BCryptPasswordEncoder encoder;
 
     @Inject
     public AdminUserController(UserDao dao, BCryptPasswordEncoder encoder) {
