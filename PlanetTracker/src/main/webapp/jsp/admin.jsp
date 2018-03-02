@@ -33,7 +33,7 @@
                             <a href="${pageContext.request.contextPath}/jsp/planets.jsp">Planets</a>
                         </li>
                         <li>                        
-                            <a href="#">About</a>
+                            <a href="${pageContext.request.contextPath}/jsp/about.jsp">About</a>
                         </li> 
                         <li class="active"> 
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
